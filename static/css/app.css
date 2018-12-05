@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+body{
+    /*background-color: #FAFAFA;*/
+}
+header, main, footer {
+    padding-left: 250px;
+}
+main{
+    margin-top: 16px;
+}
+.main{
+    margin-top: 58px;
+}
+.login-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    overflow-y: auto;
+    padding: 16px;
+}
+.login-controller{
+    max-width: 400px;
+    width: 100%;
+}
+.login-controller-action{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.font{
+    font-family: 'Lobster', cursive;
+}
+.style{
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 40px;
+}
+.sidenav-grey{
+    background-color: #eee;
+    box-shadow: none;
+}
+
+/*footer*/
+/*footer*/
+/*footer*/
+.fixed-footer{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+}
+.toolbar-footer{
+    height: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+}
+.mp{
+    padding: 0;
+    margin: 0;
+}
+.actions{
+    display: none;
+}
+.profile{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 56px;
+}
+.user{
+    width: 32px;
+    height: 32px;
+    margin: 0 8px;
+    overflow: hidden;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+}
+.user-info{
+    position: absolute;
+    background: #fff;
+    right: 8px;
+    top: 60px;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 0;
+}
+.user-info li{
+    height: 44px;
+}
+.user-info li a{
+    height: 100%;
+    line-height: 44px;
+}
+.user-info li a i{
+    height: 100%;
+    line-height: 44px;
+}
+.toolbar-controller{
+    position: fixed;
+    top: 56px;
+    right: 0;
+    left: 250px;
+    height: 58px;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    z-index: 600;
+}
+@media only screen and (max-width : 992px) {
+    header, main, footer {
+        padding-left: 0;
+    }
+    .toolbar-controller{
+        left: 0;
+    }
+}
+@media only screen and (min-width : 991px) {
+    header, main, footer {
+
+    }
+    .sidenav-overlay{
+        display: none !important;
+    }
+    .sidenav-fixed{
+        z-index: 555;
+    }
+}
+
+.pagination a {
+    font-size: 14px !important;
+}
+.pagination i {
+    font-size: 16px !important;
+}
+.mp {
+    padding-left: 20px;
+}
