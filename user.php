@@ -3,12 +3,12 @@
 <?php include 'include/sidenav.php'?>
 <style>
     .users {
-        background: #DCDCDC !important;
-        color: #0cc !important;
+        background: #0cc !important;
+        color: #FFF !important;
         font-weight: 800 !important;
     }
     .users i{
-        color: #0cc !important;
+        color: #FFF !important;
     }
 </style>
 </head>

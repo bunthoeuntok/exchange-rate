@@ -27,7 +27,6 @@
     </footer>
 
     <div id="modal" class="modal">
-        <div class="modal-background"></div>
         <form class="modal-card" action="app/controllers/RoleController.php" method="post" id="role-form">
             <div class="modal-card-head">
                 <p>Modal Header</p>

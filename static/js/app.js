@@ -18,12 +18,8 @@ $(document).ready(function () {
     $('.date').dateDropper();
     $('.show-modal').click(function () {
         var modal = $(this).attr('modal-data')
-        $('#' + modal).css({
-            // display: 'block'
-        })
-        $('.modal-card').css({
-            animation: 'bounceIn .35s ease'
-        });
+        $('#' + modal).addClass('modal-show')
+        $('.modal-card').addClass('modal-bouncein')
         $('body').append('<div class="modal-background"></div>')
     })
     $('body').on('click', '.modal-background', function () {
@@ -34,13 +30,12 @@ $(document).ready(function () {
     })
 
     function closefunction() {
-        $('.modal-card').css({
-            animation: 'bounceOut .35s ease'
-        });
-        $('.modal').delay(800).css({
-            display: 'none'
-        })
-        $('.modal-background').remove()
+        $('.modal-card').removeClass('modal-bouncein')
+        $('.modal-card').addClass('modal-bounceout')
+        setTimeout(function () {
+            $('.modal').removeClass('modal-show')
+            $('.modal-background').remove()
+        },350);
     }
 
 //material js

@@ -25,7 +25,6 @@
         
     </footer>
     <div id="modal" class="modal">
-        <div class="modal-background"></div>
         <form class="modal-card" action="app/controllers/CurrencyController.php" method="post" id="currency-form">
             <div class="modal-card-head">
                 <p>Modal Header</p>

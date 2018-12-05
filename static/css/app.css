@@ -39,10 +39,12 @@ main{
     font-size: 40px;
 }
 .sidenav-grey{
-    background-color: #eee;
+    background-color: #fff;
     box-shadow: none;
 }
-
+.sidenav-grey li a:hover{
+    background-color: rgba(0,204,204, .2);
+}
 /*footer*/
 /*footer*/
 /*footer*/

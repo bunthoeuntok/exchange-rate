@@ -19,8 +19,7 @@
     background-color: #fff;
     overflow: hidden;
     border-radius: 0.16rem;
-    box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
-
+    //animation: bouncein 0.35s ease;
     .modal-card-head {
       position: relative;
       align-items: center;
@@ -72,11 +71,21 @@
     right: 0;
     top: 0;
     z-index: 999;
+  transition: all 0.55s ease;
   }
 .modal-small{
-  width: 40% !important;
+  width: 350px !important;
+  height: 250px !important;
 }
-
+.modal-bounceout{
+  animation: bounceOut .35s ease;
+}
+.modal-bouncein{
+  animation: bounceIn 0.35s ease;
+}
+.modal-show{
+  display: block;
+}
 @-webkit-keyframes bounceIn {
   0% {
     -webkit-transform: scale(0.7);
