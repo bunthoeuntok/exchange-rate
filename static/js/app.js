@@ -51,9 +51,7 @@ $(document).ready(function () {
 // checkbox onchange event for action
     $('body').on('change', '.table #check-action', function () {
         $('.check-action').prop("checked", $(this).prop("checked"));
-        var item = $('.check-action:checked').map(function () {
-            return $(this).val();
-        }).get().join();
+        var item = $('.check-action:checked');
         items = item.length;
         if (items > 1) {
             $('.action').hide();
@@ -96,4 +94,27 @@ $(document).ready(function () {
 //       $(".datepicker-modal").hide();
 //     }
 // });
+    $('.closealert').click(function(){
+        closealert()
+    })
 });
+function showalert(){
+    $('body').append('<div class="overlay"></div>');
+    $('.alert').addClass('modal-show')
+    $('.modal-card').addClass('modal-bouncein')
+}
+function closealert(){
+    $('.modal-card').removeClass('modal-bouncein')
+    $('.modal-card').addClass('modal-bounceout')
+    setTimeout(function () {
+        $('.modal').removeClass('modal-show')
+        $('.overlay').remove()
+        $('.actions').hide();
+        $('.action').show();
+        M.toast({
+            html: '<i class="material-icons left">error</i><span>Data delete successful.</span>',
+            classes: 'teal',
+            displayLength: 10000
+        })
+    },350);
+}

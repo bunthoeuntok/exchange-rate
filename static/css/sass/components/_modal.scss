@@ -73,9 +73,23 @@
     z-index: 999;
   transition: all 0.55s ease;
   }
+.overlay{
+  @extend .modal-background;
+}
 .modal-small{
   width: 350px !important;
-  height: 250px !important;
+  .modal-card{
+    .modal-card-head{
+      height: 44px;
+      font-size: 18px;
+    }
+    .modal-card-body{
+
+    }
+    .modal-card-foot{
+      height: 44px;
+    }
+  }
 }
 .modal-bounceout{
   animation: bounceOut .35s ease;

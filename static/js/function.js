@@ -92,7 +92,7 @@ function deletes(url, data, callback) {
 		data: {method: 'delete', ids: data},	
 
 		success: function(respone) {
-			alert('Data delete successful');
+			
 		}
 	})).done(function() {
 		callback();

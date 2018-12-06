@@ -9,7 +9,6 @@
                 </div>
             </div>
         </div>
-        <div class="divider"></div>
     </nav>
     <div class="sidenav-scrolling">
         <ul class="">

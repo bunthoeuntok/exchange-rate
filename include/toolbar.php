@@ -13,3 +13,18 @@
         <input type="text" class="validate-small no-margin" name="search" placeholder="Search...">
     </div>
 </div>
+<div class="modal modal-small alert">
+    <div class="modal-card">
+        <div class="modal-card-head red">
+            hi
+        </div>
+        <div class="modal-card-body">
+            <p>Want to delete?</p>
+            <p>Want to delete?</p>
+        </div>
+        <div class="modal-card-foot">
+            <button class="btn-small grey closealert">cancel</button>
+            <button class="btn-small delete">delete</button>
+        </div>
+    </div>
+</div>

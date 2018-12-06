@@ -89,14 +89,14 @@
                 var ids = $('body').find('.check-action:checked').map(function() {
                     return $(this).val();
                 }).get().join(' ');
-
-                var result = confirm('Want to delete?');
-
-                if(result) {
+                //show modal comfirm delete
+                showalert()
+                $('body').on('click', '.delete', function(){
                     deletes(url, ids, function() {
                         paginate(url, main); 
                     });
-                }
+                    closealert()
+                })
             })
         });
     </script>

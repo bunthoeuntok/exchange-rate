@@ -118,13 +118,14 @@
                     return $(this).val();
                 }).get().join(' ');
 
-                var result = confirm('Want to delete?');
-
-                if(result) {
+                showalert()
+                
+                $('body').on('click', '.delete', function(){
                     deletes(url, ids, function() {
                         paginate(url, main); 
                     });
-                }
+                    closealert()
+                })
             })
         });
     </script>
