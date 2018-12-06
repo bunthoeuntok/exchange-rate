@@ -33,8 +33,8 @@
             <div class="modal-card-body">
                 <input type="hidden" name="id">
                  <div class="input-field margin-top">
-                    <input name="name" placeholder="Role's name" type="text" class="validate">
-                    <label>Role's name</label>
+                    <input name="name" placeholder="Role's name" type="text">
+                    <label>Employee's name</label>
                 </div>
                 <div class="row">
                     <div class="input-field s6 col">
@@ -87,7 +87,23 @@
                     name: {
                         required: true
                     },
+                    gender: {
+                        required: true
+                    },
+                    birth_date: {
+                        required: true
+                    },
+                    phone: {
+                        required: true,
+                        number: true
+                    },
+                    address: {
+                        required: true
+                    },
                     social_id: {
+                        required: true
+                    },
+                    hired_date: {
                         required: true
                     }
                     

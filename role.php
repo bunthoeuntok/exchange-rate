@@ -91,6 +91,7 @@
                 }).get().join(' ');
                 //show modal comfirm delete
                 showalert()
+                
                 $('body').on('click', '.delete', function(){
                     deletes(url, ids, function() {
                         paginate(url, main); 

@@ -14,7 +14,7 @@ require_once 'Paginator.php';
 							 	ON users.role_id = role.id
 							 INNER JOIN ex_employees as emp
 							 	ON users.emp_id = emp.id
-							WHERE users.is_delete = 0';
+							WHERE users.is_delete = 0 AND role.is_delete = 0 AND emp.is_delete = 0';
 			return parent::findAll($query);
 		}
 
@@ -28,7 +28,7 @@ require_once 'Paginator.php';
 							 	ON users.role_id = role.id
 							 INNER JOIN ex_employees as emp
 							 	ON users.emp_id = emp.id
-							WHERE users.is_delete = 0 LIMIT :limits OFFSET :offsets';
+							WHERE users.is_delete = 0  AND role.is_delete = 0 AND emp.is_delete = 0 LIMIT :limits OFFSET :offsets';
 			$users = new Paginator('ex_users');
 			return $users->pagination($query, $params);
 		}

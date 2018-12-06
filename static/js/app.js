@@ -29,14 +29,7 @@ $(document).ready(function () {
         closefunction()
     })
 
-    function closefunction() {
-        $('.modal-card').removeClass('modal-bouncein')
-        $('.modal-card').addClass('modal-bounceout')
-        setTimeout(function () {
-            $('.modal').removeClass('modal-show')
-            $('.modal-background').remove()
-        },350);
-    }
+
 
 //material js
     $('.sidenav-hover').sidenav();
@@ -116,5 +109,14 @@ function closealert(){
             classes: 'teal',
             displayLength: 10000
         })
+    },350);
+}
+
+function closefunction() {
+    $('.modal-card').removeClass('modal-bouncein')
+    $('.modal-card').addClass('modal-bounceout')
+    setTimeout(function () {
+        $('.modal').removeClass('modal-show')
+        $('.modal-background').remove()
     },350);
 }

@@ -77,7 +77,7 @@ function action(form, type, callback) {
 		data: data,
 
 		success: function(respone) {
-			$('.modal').css('display','none')
+			closefunction();
 		}
 	})).done(function() {
 		callback();
@@ -153,6 +153,35 @@ function __create_pagination(pagin) {
  //    </section>
 }
 
+
+function formatDate(date) {
+  var monthNames = [
+    "Jan", "Feb", "Mar",
+    "Apr", "May", "Jun", "Jul",
+    "Aug", "Sep", "Oct",
+    "Nov", "Dec"
+  ];
+
+  var day = ('0' + date.getDate()).slice(-2);
+  var monthIndex = date.getMonth();
+  var year = date.getFullYear();
+  var hour = date.getHours();
+
+  return day + '-' + monthNames[monthIndex] + '-' + year;
+}
+
+function formatDateTime(date) {
+  var dateFormat = formatDate(date);
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var ampm = hours >= 12 ? 'pm' : 'am';
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+  minutes = minutes < 10 ? '0'+minutes : minutes;
+  var strTime = hours + ':' + minutes + ' ' + ampm;
+  return dateFormat + ' ' + strTime;
+}
+
 function __create_table(records, position) {
     var table = $('<table class="table">');
     var thead = $('<thead>');
@@ -197,8 +226,13 @@ function __create_table(records, position) {
                             <span>&nbsp;</span>
                         </label>
                     </p>`);
-    		else
+    		else if(key == 'birth_date' || key == 'hired_date') {
+    			td.append(formatDate(new Date(records[row][key])));
+    		} else if(key == 'last_update') {
+    			td.append(formatDateTime(new Date(records[row][key])));
+    		} else {
     			td.append(records[row][key]);
+    		}
  
     		tr_body.append(td);	
     	});

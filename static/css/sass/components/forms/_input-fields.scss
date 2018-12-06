@@ -4,7 +4,8 @@
 /* Style Placeholders */
 
 ::placeholder {
-  color: $placeholder-text-color;
+  color: #aaa !important;
+  font-size: 12px !important;
 }
 
 /* Text inputs */
