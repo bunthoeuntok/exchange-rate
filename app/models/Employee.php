@@ -10,7 +10,7 @@ require_once 'Paginator.php';
 		}
 
 		public static function paginate($params = array()) {
-			$query = 'SELECT id, name, gender, birth_date, phone, hired_date FROM ex_employees  WHERE is_delete = 0 LIMIT :limits OFFSET :offsets';
+			$query = 'SELECT id, name AS employee_name, gender, birth_date, phone, hired_date FROM ex_employees  WHERE is_delete = 0 LIMIT :limits OFFSET :offsets';
 			$users = new Paginator('ex_employees');
 			return $users->pagination($query, $params);
 

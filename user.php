@@ -24,29 +24,39 @@
     <footer class="fixed-footer white">
         
     </footer>
-<div class="modal" id="modal">
 
-        <form class="modal-card" action="app/controllers/UserController.php" method="post" id="user-form">
-            <section class="modal-card-head">
-                <p>Modal title</p>
-            </section>
-            <section class="modal-card-body">
+    <div id="modal" class="modal">
+        <form class="modal-card" action="app/controllers/RoleController.php" method="post" id="role-form">
+            <div class="modal-card-head">
+                <p>Modal Header</p>
+            </div>
+            <div class="modal-card-body">
                 <input type="hidden" name="id">
-                 <div class="input-field margin-top">
-                    <input name="name" placeholder="Role's name" type="text" class="validate">
-                    <label>Role's name</label>
+                <div class="input-field margin-top">
+                    <select name="emp_id" class="validate">
+                    </select>
+                    <label>Employee's name</label>
+                </div>
+                <div class="input-field margin-top">
+                    <select name="role_id" class="validate">
+                    </select>
+                    <label>Employee's role</label>
+                </div>
+                <div class="input-field margin-top">
+                    <input type="text" name="username">
+                    <label>Username</label>
                 </div>
                 <div class="input-field">
-                    <textarea name="description" placeholder="Description"></textarea>
-                    <label>Description</label>
+                     <input type="text" name="password">
+                    <label>Password</label>
                 </div>
-            </section>
-            <section class="modal-card-foot">
+            </div>
+            <div class="modal-card-foot">
                 <button type="button" class="grey lighten-1 waves-effect waves-ligth btn cancel">cancel</button>
-                <button type="submit" class="waves-effect waves-ligth btn">save</button>
-            </section>
+                <button type="submit" class="waves-effect waves-green btn">save</button>
+            </div>
         </form>
-</div>
+    </div>
     <script type="text/javascript">
         $(document).ready(function() {
             var main = $('#content');

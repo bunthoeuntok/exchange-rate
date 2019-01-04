@@ -77,7 +77,7 @@ function action(form, type, callback) {
 		data: data,
 
 		success: function(respone) {
-			closefunction();
+			
 		}
 	})).done(function() {
 		callback();
@@ -85,14 +85,12 @@ function action(form, type, callback) {
 }
 
 function deletes(url, data, callback) {
-
 	$.when($.ajax({
 		url: url,
 		type: 'post',
 		data: {method: 'delete', ids: data},	
-
 		success: function(respone) {
-			
+			// closefunction();
 		}
 	})).done(function() {
 		callback();
@@ -183,7 +181,7 @@ function formatDateTime(date) {
 }
 
 function __create_table(records, position) {
-    var table = $('<table class="table">');
+    var table = $('<table id="myTable" class="table">');
     var thead = $('<thead>');
     var tbody = $('<tbody>');
     var tr_head = $('<tr>');
@@ -205,6 +203,9 @@ function __create_table(records, position) {
                         </label>
                     </p>`);
     		th.attr('width', '100')
+    	} else if(key == 'no') {
+    		th.append(key.toUpperCase());
+    		th.css({'color': 'red !important'})
     	}
     	else
     		th.append(key.toUpperCase());
@@ -244,3 +245,4 @@ function __create_table(records, position) {
    	position.html(table);
     
 }
+

@@ -95,8 +95,8 @@
                 $('body').on('click', '.delete', function(){
                     deletes(url, ids, function() {
                         paginate(url, main); 
+                        closealert()
                     });
-                    closealert()
                 })
             })
         });

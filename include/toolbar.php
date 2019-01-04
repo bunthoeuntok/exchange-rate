@@ -10,7 +10,7 @@
         </div>
     </div>
     <div>
-        <input type="text" class="validate-small no-margin" name="search" placeholder="Search...">
+        <input id="search" type="text" class="validate-small no-margin" name="search" placeholder="Search...">
     </div>
 </div>
 <div class="modal modal-small alert">

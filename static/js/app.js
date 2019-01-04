@@ -90,6 +90,32 @@ $(document).ready(function () {
     $('.closealert').click(function(){
         closealert()
     })
+
+    function filterTable() {
+      // Declare variables 
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("search");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        } 
+      }
+    }
+
+    $('#search').keyup(function() {
+        filterTable();
+    })
 });
 function showalert(){
     $('body').append('<div class="overlay"></div>');
@@ -104,19 +130,28 @@ function closealert(){
         $('.overlay').remove()
         $('.actions').hide();
         $('.action').show();
-        M.toast({
-            html: '<i class="material-icons left">error</i><span>Data delete successful.</span>',
-            classes: 'teal',
-            displayLength: 10000
-        })
+        $('body').find('table input[type="checkbox"]').prop('checked', false);
+        // M.toast({
+        //     html: '<i class="material-icons left">error</i><span>Data delete successful.</span>',
+        //     classes: 'teal',
+        //     displayLength: 1000,
+        //     completeCallback: function(){
+
+        //     }
+        // })
     },350);
+
 }
 
 function closefunction() {
     $('.modal-card').removeClass('modal-bouncein')
     $('.modal-card').addClass('modal-bounceout')
+    $('.actions').hide()
+    $('.action').show()
+    $('body').find('table input[type="checkbox"]').prop('checked', false);
+
     setTimeout(function () {
         $('.modal').removeClass('modal-show')
-        $('.modal-background').remove()
-    },350);
+        $('.modal-background').remove();
+    },100);
 }

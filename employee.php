@@ -45,7 +45,7 @@
                         <label>Gender</label>
                     </div>
                     <div class="input-field s6 col">
-                        <input name="birth_date" class="date" type="text" data-format="Y-m-d" data-large-default="true" data-theme="my-style" data-large-mode="true" data-translate-mode="true"/>
+                        <input name="birth_date" placeholder="Date of Birth" class="date" type="text" data-format="Y-m-d" data-large-default="true" data-theme="my-style" data-large-mode="true" data-translate-mode="true"/>
                         <label>Date of Birth</label>
                     </div>
                 </div>
@@ -57,14 +57,18 @@
                     <input type="text" name="address" placeholder="Address">
                     <label>Address</label>
                 </div>
-                <div class="input-field">
-                    <input type="text" name="social_id" placeholder="Social ID">
-                    <label>Social ID</label>
+                <div class="row">
+                    <div class="input-field s6 col">
+                        <input type="text" name="social_id" placeholder="Social ID">
+                        <label>Social ID</label>
+                    </div>
+                    <div class="input-field s6 col">
+                        <input name="hired_date" placeholder="Hired date" class="date" type="text" data-format="Y-m-d" data-large-default="true" data-theme="my-style" data-large-mode="true" data-translate-mode="true" data-min-year="2018" data-max-year="2030"/>
+                        <label>Hired Date</label>
+                    </div>
                 </div>
-                <div class="input-field">
-                    <input name="hired_date" class="date" type="text" data-format="Y-m-d" data-large-default="true" data-theme="my-style" data-large-mode="true" data-translate-mode="true" data-min-year="2018" data-max-year="2030"/>
-                    <label>Hired Date</label>
-                </div>
+                
+
             </div>
             <div class="modal-card-foot">
                 <button type="button" class="grey lighten-1 waves-effect waves-ligth btn cancel">cancel</button>

@@ -19,7 +19,7 @@ require_once 'Paginator.php';
 		}
 
 		public static function paginate($params = array()) {
-			$query = 'SELECT users.id,
+			$query = 'SELECT users.id as No,
 						emp.name as employee_name,
 						role.name as role_name,
 						users.status
@@ -29,7 +29,7 @@ require_once 'Paginator.php';
 							 INNER JOIN ex_employees as emp
 							 	ON users.emp_id = emp.id
 							WHERE users.is_delete = 0  AND role.is_delete = 0 AND emp.is_delete = 0 LIMIT :limits OFFSET :offsets';
-			$users = new Paginator('ex_users');
+			$users = new Paginator('ex_users', true);
 			return $users->pagination($query, $params);
 		}
 
