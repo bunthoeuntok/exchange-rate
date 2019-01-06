@@ -26,7 +26,7 @@ function find_all(url, position) {
 	})
 }
 
-function paginate(url, position, limit = 20, page = 1) {
+function paginate(url, position, page = 1, limit = 5) {
 	var data = {
 		'method': 'pagin',
 		'limit': limit,
@@ -77,7 +77,7 @@ function action(form, type, callback) {
 		data: data,
 
 		success: function(respone) {
-			
+			closefunction()
 		}
 	})).done(function() {
 		callback();
@@ -90,7 +90,7 @@ function deletes(url, data, callback) {
 		type: 'post',
 		data: {method: 'delete', ids: data},	
 		success: function(respone) {
-			// closefunction();
+			closefunction();
 		}
 	})).done(function() {
 		callback();
@@ -118,11 +118,47 @@ function __create_pagination(pagin) {
 	var div_info = $('<div>');
 	var ul = $('<ul class="pagination">');
 
-	ul.append('<li><a href="#!">First</a></li>');
-	ul.append('<li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>');
-	ul.append('<li class="active"><a href="#!">'+ pagin['current_page'] +'</a></li>');
-	ul.append('<li class="waves-effect"><a><i class="material-icons">chevron_right</i></a></li>');
-	ul.append('<li><a href="#!">Last</a></li>');
+	// ul.append('<li><a href="#!">First</a></li>');
+	if(pagin['prep'] == null) {
+		ul.append('<li class="disabled"><a class="disabled not-active"><i class="material-icons">chevron_left</i></a></li>');
+	} else {
+		ul.append('<li><a href="#" data-page="'+ parseInt(pagin['current_page'] - 1) +'"><i class="material-icons">chevron_left</i></a></li>');
+	}
+	if(pagin['total_pages'] <= 7) {
+		for(var i = 1; i <= pagin['total_pages']; i++) {
+			ul.append('<li class="waves-effect"><a data-page="'+i+'">'+ i +'</a></li>');
+		}
+	} else {
+		if(pagin['current_page'] <= 5) {
+			for(var i = 1; i <= 5; i++) {
+				ul.append('<li class="waves-effect"><a data-page="'+i+'">'+ i +'</a></li>');
+			}
+			ul.append('<li class="waves-effect"><a class="not-active">...</a></li>');
+			ul.append('<li class="waves-effect"><a data-page="'+pagin['total_pages']+'">'+ pagin['total_pages'] +'</a></li>');
+		} else if(pagin['current_page'] >= pagin['total_pages'] - 4) {
+			ul.append('<li class="waves-effect"><a data-page="1">1</a></li>');
+			ul.append('<li class="waves-effect"><a class="not-active">...</a></li>');
+			for(var i = pagin['total_pages'] - 4; i<= pagin['total_pages']; i++) {
+				ul.append('<li class="waves-effect"><a data-page="'+i+'">'+ i +'</a></li>');
+			}
+		} else {
+			ul.append('<li class="waves-effect"><a data-page="1">1</a></li>');
+			ul.append('<li class="waves-effect"><a class="not-active">...</a></li>');
+			for(var i = pagin['current_page'] - 1; i <= parseInt(pagin['current_page']) + 1; i++) {
+				ul.append('<li class="waves-effect"><a data-page="'+i+'">'+ i +'</a></li>');
+			}
+			ul.append('<li class="waves-effect"><a class="not-active">...</a></li>');
+			ul.append('<li class="waves-effect"><a data-page="'+pagin['total_pages']+'">'+ pagin['total_pages'] +'</a></li>');
+
+		}
+	}
+
+	if(pagin['next'] == null) {
+		ul.append('<li class="disabled"><a class="disabled not-active" href="#"><i class="material-icons">chevron_right</i></a></li>');
+	} else {
+		ul.append('<li><a href="#" data-page="'+ (parseInt(pagin['current_page']) + 1) +'"><i class="material-icons">chevron_right</i></a></li>');
+	}
+	// ul.append('<li><a>Last</a></li>');
 	div.append(ul);
 
 	toolbar_footer.append(div);
@@ -204,18 +240,17 @@ function __create_table(records, position) {
                     </p>`);
     		th.attr('width', '100')
     	} else if(key == 'no') {
-    		th.append(key.toUpperCase());
-    		th.css({'color': 'red !important'})
+    		th.append(`<span style="padding-left: 20px;">No</span>`);
     	}
     	else
-    		th.append(key.toUpperCase());
+    		th.append(key.replace('_', ' ').toUpperCase());
 
     	tr_head.append(th);
     });
 
     thead.append(tr_head);
     table.append(thead);
-
+    var no = 1;
     for(var row in records) {
     	var tr_body = $('<tr>');
     	Object.keys(sample).forEach((key) => {
@@ -229,8 +264,10 @@ function __create_table(records, position) {
                     </p>`);
     		else if(key == 'birth_date' || key == 'hired_date') {
     			td.append(formatDate(new Date(records[row][key])));
-    		} else if(key == 'last_update') {
+    		} else if(key == 'last_update' || key == 'created_at') {
     			td.append(formatDateTime(new Date(records[row][key])));
+    		} else if(key == 'no') {
+    			td.append(`<span style="padding-left: 20px">${no++}</span>`)
     		} else {
     			td.append(records[row][key]);
     		}

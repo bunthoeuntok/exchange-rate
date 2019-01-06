@@ -33,7 +33,7 @@
             <div class="modal-card-body">
                 <input type="hidden" name="id">
                  <div class="input-field margin-top">
-                    <input name="name" placeholder="Role's name" type="text">
+                    <input name="name" placeholder="Epmloyee's name" type="text">
                     <label>Employee's name</label>
                 </div>
                 <div class="row">

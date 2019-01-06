@@ -11,9 +11,11 @@
     <link rel="stylesheet" href="static/date/datedropper.min.css">
     <link rel="stylesheet" href="static/date/my-style.css">
     <link rel="stylesheet" href="static/css/app.css">
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
 
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/function.js"></script>
+    <script src="static/js/action.js"></script>
     <script src="static/js/jquery.localize.min.js"></script>
     <script src="static/js/jquery.validate.min.js"></script>
     <script src="static/js/materialize.min.js"></script>

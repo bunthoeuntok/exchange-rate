@@ -43,7 +43,7 @@
 			if($this->current_page >= $this->total_page)
 				$this->next = null;
 			else
-				$this->next = $this-> $this->current_page + 1;
+				$this->next = $this->current_page + 1;
 
 			$data = parent::findPaginate($query, $variables);
 			$pagin_info = array('total_pages' => $this->total_page,

@@ -19,7 +19,7 @@ require_once 'Paginator.php';
 		}
 
 		public static function paginate($params = array()) {
-			$query = 'SELECT users.id as No,
+			$query = 'SELECT users.id as no,
 						emp.name as employee_name,
 						role.name as role_name,
 						users.status
