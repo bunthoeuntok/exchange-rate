@@ -26,7 +26,6 @@
     </footer>
 
     <div id="modal" class="modal">
-        <div class="modal-background"></div>
         <form class="modal-card" action="app/controllers/TransferController.php" method="post" id="transfer-form">
             <div class="modal-card-head">
                 <p>Modal Header</p>

@@ -67,8 +67,6 @@
                         <label>Hired Date</label>
                     </div>
                 </div>
-                
-
             </div>
             <div class="modal-card-foot">
                 <button type="button" class="grey lighten-1 waves-effect waves-ligth btn cancel">cancel</button>
