@@ -26,6 +26,20 @@ function find_all(url, position) {
 	})
 }
 
+function option(url, position) {
+	var data = {
+		method: 'option'
+	}
+	$.ajax({
+		url: url,
+		type: 'post',
+		data: data,
+		success: function(respone) {
+			__create_option(respone, position);
+		}	
+	})
+}
+
 function paginate(url, position, page = 1, limit = 5) {
 	var data = {
 		'method': 'pagin',
@@ -104,6 +118,36 @@ function form_submit(form, callback) {
 		action(form, 'post', callback);
 	else 
 		action(form, 'put', callback);
+}
+
+function login(url, username, password, callback) {
+	var data = {
+		'method': 'login',
+		'username': username,
+		'password': password
+	};
+
+	$.ajax({
+		url: url,
+		type: 'post',
+		data: data,
+		success: function(respone) {
+			// console.log(respone)
+			if(respone == "false") {
+		        M.toast({
+		            html: '<i class="material-icons left">error</i><span>The username or password you entered is incorrect.</span>',
+		            classes: 'red',
+		            displayLength: 1000
+		        })
+			} else {
+				var user = JSON.parse(respone);
+				if(user.role_id == 1) 
+					window.location.href = 'dashboard.php';
+				else
+					window.location.href = 'sale.php'
+			}
+		}	
+	});
 }
 
 function __map_form(json, form) {

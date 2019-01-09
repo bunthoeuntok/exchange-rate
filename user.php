@@ -26,7 +26,7 @@
     </footer>
 
     <div id="modal" class="modal">
-        <form class="modal-card" action="app/controllers/RoleController.php" method="post" id="role-form">
+        <form class="modal-card" action="app/controllers/UserController.php" method="post" id="user-form">
             <div class="modal-card-head">
                 <p>Modal Header</p>
             </div>
@@ -34,11 +34,14 @@
                 <input type="hidden" name="id">
                 <div class="input-field margin-top">
                     <select name="emp_id" class="validate">
+                        <option value="3">Sreng Chanra</option>
                     </select>
                     <label>Employee's name</label>
                 </div>
                 <div class="input-field margin-top">
                     <select name="role_id" class="validate">
+                        <option value="3">Saler</option>
+                        <option value="1">Admin</option>
                     </select>
                     <label>Employee's role</label>
                 </div>
@@ -68,7 +71,16 @@
                     this.element(element);  
                 },
                 rules: {
-                    name: {
+                    emp_id: {
+                        required: true
+                    },
+                    role_id: {
+                        required: true
+                    }, 
+                    username: {
+                        required: true
+                    }, 
+                    password: {
                         required: true
                     }
                     
@@ -88,6 +100,8 @@
             $('#add').click(function() {
                 user_validate.resetForm();
                 document.getElementById('user-form').reset();
+
+                
             })
             $('#edit').click(function() {
                 var id = ($('.check-action:checked').val());

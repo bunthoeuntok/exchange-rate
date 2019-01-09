@@ -21,3 +21,14 @@
     <script src="static/js/materialize.min.js"></script>
     <script src="static/js/datedropper.min.js"></script>
     <script src="static/js/app.js"></script>
+
+    <?php 
+        session_start();
+
+        if(isset($_SESSION['user']) && $_SESSION['user']->role_id == 1) {
+            // header('Location: dashboard.php');
+            
+        }  else 
+            header('Location: login.php');
+
+     ?>

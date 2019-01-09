@@ -36,6 +36,10 @@
 
 				$model->delete($ids);
 			}
+
+			else if($method == 'login') {
+				return $model->find($data);
+			}
 			
 		}
 	}

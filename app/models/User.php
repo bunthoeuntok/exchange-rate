@@ -18,6 +18,11 @@ require_once 'Paginator.php';
 			return parent::findAll($query);
 		}
 
+		public static function createOption() {
+			$query = 'SELECT id, name FROM ex_employees';
+			return parent::findAll($query);
+		}
+
 		public static function paginate($params = array()) {
 			$query = 'SELECT users.id as no,
 						emp.name as employee_name,
@@ -33,15 +38,21 @@ require_once 'Paginator.php';
 			return $users->pagination($query, $params);
 		}
 
-		// public static function find($id = array()) {
-		// 	$query = 'SELECT * FROM users WHERE id = :id';
-		// 	return parent::findOne($query, $id);
-		// }
+		public static function find($params = array()) {
+			$query = 'SELECT * FROM ex_users WHERE username = :username AND password = :password';
+			$user = parent::findOne($query, $params);
+			if($user != false) {
+				session_start();
+				$_SESSION['user'] = $user;
+			}
 
-		// public static function save($params = array()) {
-		// 	$query = 'INSERT INTO users(username, email, password) VALUES(:username, :email, :password)';
-		// 	parent::insert($query, $params);
-		// }
+			return $user;
+		}
+
+		public static function save($params = array()) {
+			$query = 'INSERT INTO ex_users(emp_id, role_id, username,  password) VALUES(:emp_id, :role_id, :username, :password)';
+			parent::insert($query, $params);
+		}
 
 		// public static function delete($ids = array()) {
 		// 	$query = 'DELETE FROM users WHERE id = :id';
