@@ -282,10 +282,11 @@ function __create_table(records, position) {
     	if(key == 'id'){
     		th.append(`<p class="mp">
                         <label>
-                            <input type="checkbox" class="filled-in" id="check-action"/>
+                            <input type="checkbox" class="filled-in filled-in-weith" id="check-action"/>
                             <span>&nbsp;</span>
                         </label>
-                    </p>`);
+                    </p>
+                    `);
     		th.attr('width', '100')
     	} else if(key == 'no') {
     		th.append(`<span style="padding-left: 20px;">No</span>`);

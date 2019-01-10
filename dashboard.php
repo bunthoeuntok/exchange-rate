@@ -2,13 +2,13 @@
 <?php include 'include/navbar.php' ?>
 <?php include 'include/sidenav.php' ?>
 <style>
-    .index-active{
-        background: #DCDCDC !important;
-        color: #2E2E2E !important;
+    .dashboard {
+        background-color: rgba(0,204,204, .4) !important;
+        color: #FFF !important;
         font-weight: 800 !important;
     }
-    .index-active i{
-        color: #FF0000 !important;
+    .dashboard i{
+        color: #FFF !important;
     }
     p.mp {
         text-align: center;
@@ -17,23 +17,6 @@
 </head>
 <main>
     <div class="container-full">
-        <form id="form" method="post" action="app/controllers/UserController.php">
-            <input type="text" name="id">
-            <input type="text" name="username">
-            <input type="text" name="email">
-            <input type="text" name="password">
-            <input type="submit" value="Submit">
-        </form>
-        <br>
-        <button id="add">Add</button>
-        <button id="update">Update</button>
-        <button id="delete">Delete</button>
-        <br>
-        <div id="content">
-
-        </div>
-        <br>
-        <br>
         <script type="text/javascript">
 
             $(document).ready(function () {

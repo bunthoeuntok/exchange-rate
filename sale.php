@@ -38,6 +38,17 @@
         padding: 0 !important;
         overflow: hidden;
     }
+    .table{
+        margin-top: 0px !important;
+    }
+    .sale {
+        background-color: rgba(0,204,204, .4) !important;
+        color: #FFF !important;
+        font-weight: 800 !important;
+    }
+    .sale i{
+        color: #FFF !important;
+    }
 </style>
 </head>
 <body>
@@ -58,7 +69,7 @@
                     <li class="divider" tabindex="-1"></li>
                     <li><a href="#!">three</a></li>
                     <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-                    <li><a href="#!"><i class="material-icons">exit_to_app</i>Sign out</a></li>
+                    <li><a href="login.php"><i class="material-icons">exit_to_app</i>Sign out</a></li>
                 </ul>
             </li>
         </ul>

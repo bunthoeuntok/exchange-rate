@@ -160,4 +160,8 @@ main{
 }
 .brand-logo{
     font-size: 23px !important;
+
+}
+.brand-logo:hover{
+    background: transparent !important;
 }

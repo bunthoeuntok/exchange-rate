@@ -2,13 +2,13 @@
 <?php include 'include/navbar.php'?>
 <?php include 'include/sidenav.php'?>
 <style>
-    .transfer-active{
-        background: #DCDCDC !important;
-        color: #2E2E2E !important;
+    .transfer {
+        background-color: rgba(0,204,204, .4) !important;
+        color: #FFF !important;
         font-weight: 800 !important;
     }
-    .transfer-active i{
-        color: #FF0000 !important;
+    .transfer i{
+        color: #FFF !important;
     }
 </style>
 </head>

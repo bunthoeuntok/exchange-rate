@@ -32,4 +32,9 @@ table#myTable {
 table thead tr th {
 	color: #fff;
 	background-color: #88b3dd;
+	border-radius: 0px !important;
+}
+#style::after{
+	border: 2px solid #fff;
+
 }

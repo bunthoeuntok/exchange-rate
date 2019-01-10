@@ -3,7 +3,7 @@
 <?php include 'include/sidenav.php'?>
 <style>
     .users {
-        background: #0cc !important;
+        background-color: rgba(0,204,204, .4) !important;
         color: #FFF !important;
         font-weight: 800 !important;
     }

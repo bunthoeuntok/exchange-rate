@@ -2,14 +2,14 @@
 <?php include 'include/navbar.php'?>
 <?php include 'include/sidenav.php'?>
     <style>
-        .department-active {
-            background: #DCDCDC !important;
-            color: #2E2E2E !important;
-            font-weight: 800 !important;
-        }
-        .department-active i{
-            color: #FF0000 !important;
-        }
+        .currency {
+        background-color: rgba(0,204,204, .4) !important;
+        color: #FFF !important;
+        font-weight: 800 !important;
+    }
+    .currency i{
+        color: #FFF !important;
+    }
     </style>
     <title></title>
 </head>

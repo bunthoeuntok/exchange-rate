@@ -4,9 +4,15 @@
         <div class="nav-wrapper">
             <ul class="left">
                 <li>
-                    <div data-target="slide-out" class="sidenav-trigger pointer">
+                    <div data-target="slide-out" class="sidenav-trigger pointer" style="margin-right: 24px; margin-left: 5px;">
                         <i class="material-icons write-text">menu</i>
                     </div>
+                </li>
+                <li>
+                    <a href="#!" class="brand-logo">
+                        <span class="light-text">Money</span>
+                        <span class="bold-text">Exchage</span>
+                    </a>
                 </li>
             </ul>
             <ul class="right">
@@ -20,7 +26,7 @@
                         <li class="divider" tabindex="-1"></li>
                         <li><a href="#!">three</a></li>
                         <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-                        <li><a href="#!"><i class="material-icons">exit_to_app</i>Sign out</a></li>
+                        <li><a href="login.php"><i class="material-icons">exit_to_app</i>Sign out</a></li>
                     </ul>
                 </li>
             </ul>
