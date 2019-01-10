@@ -5,10 +5,10 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    <link rel="shortcut icon" type="image/x-icon" href="static/images/icons/money-bag.png" />
+    <title>Money-Exchange</title>
     <link rel="stylesheet" href="static/css/sass/material.css">
     <link rel="stylesheet" href="static/icons/material-icons.css">
-    <link rel="stylesheet" href="static/date/datedropper.min.css">
     <link rel="stylesheet" href="static/date/my-style.css">
     <link rel="stylesheet" href="static/css/app.css">
     <link rel="stylesheet" type="text/css" href="static/css/main.css">
@@ -30,7 +30,6 @@
             
         }  else 
             header('Location: login.php');
-
      ?>
 <style>
     main{
@@ -53,7 +52,7 @@
 </head>
 <body>
 <nav>
-    <div class="nav-wrapper container-full">
+    <div class="nav-wrapper container-full" style="background-color: #2c6197">
         <a href="#!" class="brand-logo">
             <span class="light-text">Money</span>
             <span class="bold-text">Exchage</span>
@@ -92,7 +91,7 @@
                         </tr>
                     </thead>
                 </table>
-                <div class="container-full">
+                <div class="container-full" style="padding-top: 12px">
                     <input type="hidden" name="id">
                     <div class="row">
                         <div class="input-field col s6 margin-top">
