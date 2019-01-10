@@ -56,7 +56,8 @@ main{
     overflow: hidden;
 }
 .toolbar-footer{
-    height: 48px;
+    background-color: #88b3dd;
+    height: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;

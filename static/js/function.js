@@ -40,7 +40,7 @@ function option(url, position) {
 	})
 }
 
-function paginate(url, position, page = 1, limit = 5) {
+function paginate(url, position, page = 1, limit = 15) {
 	var data = {
 		'method': 'pagin',
 		'limit': limit,
@@ -157,6 +157,8 @@ function __map_form(json, form) {
 }
 
 function __create_pagination(pagin) {
+	if(pagin['total_pages'] == 0)
+		return;
 	var toolbar_footer = $('<section class="toolbar-footer">');
 	var div = $('<div>');
 	var div_info = $('<div>');
@@ -267,7 +269,9 @@ function __create_table(records, position) {
     var tr_head = $('<tr>');
 
     if(records.length == 0) {
-    	position.html('No record found.')
+    	position.html(`<div style="display: flex; justify-content: center;margin-top: 120px">
+    						<img src="static/images/icons/documents-empty.png" />
+    					</div>`)
     	return;
     }
     // Table header
@@ -291,7 +295,6 @@ function __create_table(records, position) {
 
     	tr_head.append(th);
     });
-
     thead.append(tr_head);
     table.append(thead);
     var no = 1;

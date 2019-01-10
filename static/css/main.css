@@ -1,6 +1,35 @@
+
 .not-active {
   pointer-events: none;
   text-decoration: none;
   cursor: default;
   color: black;
+}
+.navbar-fixed {
+	min-height: 60px !important;
+}
+.navbar-fixed .container-full {
+	background-color: #2c6197 !important;
+}
+.toolbar-controller {
+	border-bottom: 1px solid #ddd;
+	height: 50px;
+	background-color: #3473b2;
+}
+
+.sidenav-scrolling {
+	box-shadow: none !important;
+	background-color: #2c6197;
+}
+.sidenav-scrolling li a, .sidenav-scrolling li a i {
+	color: #fff !important;
+}
+
+table#myTable {
+	margin-top: 10px;
+}
+
+table thead tr th {
+	color: #fff;
+	background-color: #88b3dd;
 }

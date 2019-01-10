@@ -1,11 +1,11 @@
 <!--nav fixed-->
 <div class="navbar-fixed">
-    <nav class="container-full white">
+    <nav class="container-full">
         <div class="nav-wrapper">
             <ul class="left">
                 <li>
                     <div data-target="slide-out" class="sidenav-trigger pointer">
-                        <i class="material-icons grey-text">menu</i>
+                        <i class="material-icons write-text">menu</i>
                     </div>
                 </li>
             </ul>
