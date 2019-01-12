@@ -39,8 +39,15 @@ main{
     font-size: 40px;
 }
 .sidenav-grey{
-    background-color: #fff;
+    background-color: #2C6197;
     box-shadow: none;
+}
+.sidenav-close{
+    color: #fff !important;
+    margin-left: 10px !important;
+}
+.sidenav-close i{
+    color: #fff !important;
 }
 .sidenav-grey li a:hover{
     background-color: rgba(0,204,204, .2);
@@ -164,4 +171,17 @@ main{
 }
 .brand-logo:hover{
     background: transparent !important;
+}
+.input-field label{
+    color: #444 !important;
+    margin-top: -4px;
+}
+.input-field{
+    position: relative;
+
+}
+.input-field small{
+    position: absolute;
+    right: 0;
+    top: 0;
 }

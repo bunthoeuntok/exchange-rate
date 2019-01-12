@@ -35,7 +35,8 @@ function option(url, position) {
 		type: 'post',
 		data: data,
 		success: function(respone) {
-			__create_option(respone, position);
+			var object = JSON.parse(respone);
+			__create_option(object, position);
 		}	
 	})
 }
@@ -120,7 +121,7 @@ function form_submit(form, callback) {
 		action(form, 'put', callback);
 }
 
-function login(url, username, password, callback) {
+function login(url, username, password) {
 	var data = {
 		'method': 'login',
 		'username': username,
@@ -132,7 +133,6 @@ function login(url, username, password, callback) {
 		type: 'post',
 		data: data,
 		success: function(respone) {
-			// console.log(respone)
 			if(respone == "false") {
 		        M.toast({
 		            html: '<i class="material-icons left">error</i><span>The username or password you entered is incorrect.</span>',
@@ -144,7 +144,7 @@ function login(url, username, password, callback) {
 				if(user.role_id == 1) 
 					window.location.href = 'dashboard.php';
 				else
-					window.location.href = 'sale.php'
+					window.location.href = 'sale.php';
 			}
 		}	
 	});
@@ -154,6 +154,20 @@ function __map_form(json, form) {
 	form.find('[name]').each(function(index, value) {
 		$(this).val(json[$(this).attr('name')]);
 	});
+	$('select').formSelect();
+}
+
+function __create_option(json, position) {
+	var options = '';
+	if(json.length <= 0) {
+		options = '<option>No employee to create users</option>';
+	} else {
+		json.forEach(function(item) {
+			options += '<option value="'+ item.id +'">'+ item.name +'</option>';
+		})
+	}
+	position.html(options);
+	$('select').formSelect();
 }
 
 function __create_pagination(pagin) {
@@ -166,7 +180,7 @@ function __create_pagination(pagin) {
 
 	// ul.append('<li><a href="#!">First</a></li>');
 	if(pagin['prep'] == null) {
-		ul.append('<li class="disabled"><a class="disabled not-active"><i class="material-icons">chevron_left</i></a></li>');
+		ul.append('<li class="disabled"><a class="disabled not-active"><i class="material-icons white-text">chevron_left</i></a></li>');
 	} else {
 		ul.append('<li><a href="#" data-page="'+ parseInt(pagin['current_page'] - 1) +'"><i class="material-icons">chevron_left</i></a></li>');
 	}
@@ -200,7 +214,7 @@ function __create_pagination(pagin) {
 	}
 
 	if(pagin['next'] == null) {
-		ul.append('<li class="disabled"><a class="disabled not-active" href="#"><i class="material-icons">chevron_right</i></a></li>');
+		ul.append('<li class="disabled"><a class="disabled not-active" href="#"><i class="material-icons white-text">chevron_right</i></a></li>');
 	} else {
 		ul.append('<li><a href="#" data-page="'+ (parseInt(pagin['current_page']) + 1) +'"><i class="material-icons">chevron_right</i></a></li>');
 	}
@@ -208,7 +222,7 @@ function __create_pagination(pagin) {
 	div.append(ul);
 
 	toolbar_footer.append(div);
-	div_info.append('<strong style="font-size: 14px">Page '+pagin['current_page'] 
+	div_info.append('<strong style="font-size: 14px; color: #fff">Page '+pagin['current_page'] 
 						+ ' of '+ pagin['total_pages'] + ' // ' + pagin['total_records'] + ' rocord(s)' +'<strong>');
 	toolbar_footer.append(div_info);
 
@@ -269,8 +283,13 @@ function __create_table(records, position) {
     var tr_head = $('<tr>');
 
     if(records.length == 0) {
-    	position.html(`<div style="display: flex; justify-content: center;margin-top: 120px">
-    						<img src="static/images/icons/documents-empty.png" />
+    	position.html(`<div style="display: flex; flex-direction: column; justify-content: center ;margin-top: 150px; align-items: center">
+    						<div style="width: 100%; max-width: 500px;">
+    							<img class="responsive-img" src="static/images/icons/documents-empty.png" />
+    						</div>
+    						<div>
+    							<button class="btn" style="width: 150px; margin-top: 20px">GO BACK</button>
+    						</div>
     					</div>`)
     	return;
     }

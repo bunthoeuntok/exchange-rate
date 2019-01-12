@@ -31,21 +31,21 @@
         </div>
         <div class="modal-card-body">
             <input type="hidden" name="id">
-            <div class="input-field margin-top">
-                <input name="name" placeholder="Currency's name" type="text" class="validate">
+            <div class="input-field">
                 <label>Currency's name</label>
+                <input name="name" placeholder="Currency's name" type="text">
             </div>
             <div class="input-field">
-                <input name="symbol" placeholder="Khmer name" type="text" class="validate">
                 <label>Khmer name</label>
+                <input name="symbol" placeholder="Khmer name" type="text">
             </div>
             <div class="input-field">
-                <input name="country" placeholder="Country" type="text" class="validate">
                 <label>Country</label>
+                <input name="country" placeholder="Country" type="text">
             </div>
             <div class="input-field">
-                <input name="unit_price" placeholder="Unit Price" type="text" class="validate">
                 <label>Unit Price</label>
+                <input name="unit_price" placeholder="Unit Price" type="text">
             </div>
         </div>
         <div class="modal-card-foot">

@@ -32,14 +32,24 @@
             </div>
             <div class="modal-card-body">
                 <input type="hidden" name="id">
-                 <div class="input-field margin-top">
-                    <input name="name" placeholder="Role's name" type="text" class="validate">
-                    <label>Role's name</label>
-                </div>
-                <div class="input-field">
-                    <textarea name="description" placeholder="Description"></textarea>
-                    <label>Description</label>
-                </div>
+                 <div class="row">
+                        <div class="input-field col s6 margin-top">
+                            <input type="text" name="username" placeholder="Username">
+                            <label>From money</label>
+                        </div>
+                        <div class="input-field col s6 margin-top">
+                            <input type="text" name="username" placeholder="Username">
+                            <label>From money</label>
+                        </div>
+                        <div class="input-field col s6 margin-top">
+                            <input type="text" name="username" placeholder="Username">
+                            <label>From money</label>
+                        </div>
+                        <div class="input-field col s6 margin-top">
+                            <input type="text" name="username" placeholder="Username">
+                            <label>From money</label>
+                        </div>
+                    </div>
             </div>
             <div class="modal-card-foot">
                 <button type="button" class="grey lighten-1 waves-effect waves-ligth btn cancel">cancel</button>

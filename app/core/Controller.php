@@ -40,6 +40,10 @@
 			else if($method == 'login') {
 				return $model->find($data);
 			}
+
+			else if($method == 'option') {
+				return $model->option();
+			}
 			
 		}
 	}

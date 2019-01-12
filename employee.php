@@ -32,39 +32,39 @@
             </div>
             <div class="modal-card-body">
                 <input type="hidden" name="id">
-                 <div class="input-field margin-top">
-                    <input name="name" placeholder="Epmloyee's name" type="text">
+                 <div class="input-field">
                     <label>Employee's name</label>
+                    <input name="name" placeholder="Epmloyee's name" type="text">
                 </div>
                 <div class="row">
-                    <div class="input-field s6 col">
+                    <div class="input-field s12 m6 col">
+                        <label>Gender</label>
                         <select name="gender">
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                         </select>
-                        <label>Gender</label>
                     </div>
-                    <div class="input-field s6 col">
-                        <input name="birth_date" placeholder="Date of Birth" class="date" type="text" data-format="Y-m-d" data-large-default="true" data-theme="my-style" data-large-mode="true" data-translate-mode="true"/>
+                    <div class="input-field s12 m6 col">
                         <label>Date of Birth</label>
+                        <input name="birth_date" placeholder="Date of Birth" class="date" type="text" data-format="Y-m-d" data-large-default="true" data-theme="my-style" data-large-mode="true" data-translate-mode="true"/>
                     </div>
                 </div>
                 <div class="input-field">
-                    <input type="text" name="phone" placeholder="Phone number">
                     <label>Phone number</label>
+                    <input type="text" name="phone" placeholder="Phone number">
                 </div>
                 <div class="input-field">
-                    <input type="text" name="address" placeholder="Address">
                     <label>Address</label>
+                    <input type="text" name="address" placeholder="Address">
                 </div>
                 <div class="row">
                     <div class="input-field s6 col">
-                        <input type="text" name="social_id" placeholder="Social ID">
                         <label>Social ID</label>
+                        <input type="text" name="social_id" placeholder="Social ID">
                     </div>
                     <div class="input-field s6 col">
-                        <input name="hired_date" placeholder="Hired date" class="date" type="text" data-format="Y-m-d" data-large-default="true" data-theme="my-style" data-large-mode="true" data-translate-mode="true" data-min-year="2018" data-max-year="2030"/>
                         <label>Hired Date</label>
+                        <input name="hired_date" placeholder="Hired date" class="date" type="text" data-format="Y-m-d" data-large-default="true" data-theme="my-style" data-large-mode="true" data-translate-mode="true" data-min-year="2018" data-max-year="2030"/>
                     </div>
                 </div>
             </div>

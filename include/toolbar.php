@@ -1,7 +1,7 @@
 <div class="toolbar-controller">
     <div>
         <div class="action">
-            <a modal-data="modal" class="waves-effect waves-ligth show-modal btn btn-small add-new" id="add"><i
+            <a modal-data="modal" class="waves-effect waves-ligth show-modal btn btn-small add-new" id="add" style=""><i
                         class="material-icons left">add</i>add new</a>
         </div>
         <div class="actions">
@@ -10,7 +10,7 @@
         </div>
     </div>
     <div>
-        <input style="color: #fafafa; font-weight: 300;" id="search" type="text" class="validate-small no-margin" name="search" placeholder="Search...">
+        <input style="color: #666; font-weight: 400; background: #fff; height: 40px" id="search" type="text" class="validate-small no-margin" name="search" placeholder="Search...">
     </div>
 </div>
 <div class="modal modal-small alert">

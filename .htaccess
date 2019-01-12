@@ -1,4 +1,4 @@
 RewriteEngine On
 
-ErrorDocument 404 /self-learning/exchange/static/errors/404.php
+ErrorDocument 404 /rule/exchange-rate/static/errors/404.php
 ErrorDocument 403 /self-learning/exchange/static/errors/403.php

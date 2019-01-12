@@ -24,6 +24,9 @@
 .sidenav-scrolling li a, .sidenav-scrolling li a i {
 	color: #fff !important;
 }
+.main {
+	margin-bottom: 40px;
+}
 
 table#myTable {
 	margin-top: 10px;

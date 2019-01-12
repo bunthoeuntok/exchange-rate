@@ -14,29 +14,29 @@
 
 */
 div.datedropper.my-style {
-  border-radius: 4px;
-  width: 177px;
+  border-radius: 8px;
+  width: 180px;
 }
 div.datedropper.my-style .picker {
-  border-radius: 4px;
-  box-shadow: 0 0 22px 0px rgba(0, 0, 0, 0.17);
+  border-radius: 8px;
+  box-shadow: 0 0 32px 0px rgba(0, 0, 0, 0.1);
 }
 div.datedropper.my-style .pick-l {
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 div.datedropper.my-style:before,
 div.datedropper.my-style .pick-submit,
 div.datedropper.my-style .pick-lg-b .pick-sl:before,
 div.datedropper.my-style .pick-m,
 div.datedropper.my-style .pick-lg-h {
-  background-color: #0cc;
+  background-color: #2C6197;
 }
 div.datedropper.my-style .pick-y.pick-jump,
 div.datedropper.my-style .pick li span,
 div.datedropper.my-style .pick-lg-b .pick-wke,
 div.datedropper.my-style .pick-btn {
-  color: #0cc;
+  color: #2C6197;
 }
 div.datedropper.my-style .picker,
 div.datedropper.my-style .pick-l {

@@ -18,11 +18,6 @@ require_once 'Paginator.php';
 			return parent::findAll($query);
 		}
 
-		public static function createOption() {
-			$query = 'SELECT id, name FROM ex_employees';
-			return parent::findAll($query);
-		}
-
 		public static function paginate($params = array()) {
 			$query = 'SELECT users.id as no,
 						emp.name as employee_name,
@@ -38,8 +33,20 @@ require_once 'Paginator.php';
 			return $users->pagination($query, $params);
 		}
 
+		public static function option() {
+			$query = 'SELECT id, name FROM ex_employees WHERE id NOT IN(SELECT emp_id FROM ex_users)';
+			return parent::findAll($query);
+		}
+
 		public static function find($params = array()) {
-			$query = 'SELECT * FROM ex_users WHERE username = :username AND password = :password';
+			$query = 'SELECT  user.id, emp.name, user.role_id, role.name AS role_name, user.username, user.password
+						FROM ex_users AS user
+							INNER JOIN ex_employees AS emp
+								ON user.emp_id = emp.id
+							INNER JOIN ex_roles AS role
+								ON user.role_id = role.id
+						WHERE user.username = :username AND user.password = :password AND user.status = 0 AND user.is_delete = 0';
+			$params['password'] = md5($params['password']);
 			$user = parent::findOne($query, $params);
 			if($user != false) {
 				session_start();
@@ -51,6 +58,7 @@ require_once 'Paginator.php';
 
 		public static function save($params = array()) {
 			$query = 'INSERT INTO ex_users(emp_id, role_id, username,  password) VALUES(:emp_id, :role_id, :username, :password)';
+			$params['password'] = md5($params['password']);
 			parent::insert($query, $params);
 		}
 

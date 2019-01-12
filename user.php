@@ -32,26 +32,26 @@
             </div>
             <div class="modal-card-body">
                 <input type="hidden" name="id">
-                <div class="input-field margin-top">
-                    <select name="emp_id" class="validate">
-                        <option value="3">Sreng Chanra</option>
-                    </select>
+                <div class="input-field">
                     <label>Employee's name</label>
+                    <select name="emp_id" id="emp-name-option">
+                        
+                    </select>
                 </div>
-                <div class="input-field margin-top">
-                    <select name="role_id" class="validate">
+                <div class="input-field">
+                    <label>Employee's role</label>
+                    <select name="role_id">
                         <option value="3">Saler</option>
                         <option value="1">Admin</option>
                     </select>
-                    <label>Employee's role</label>
-                </div>
-                <div class="input-field margin-top">
-                    <input type="text" name="username">
-                    <label>Username</label>
                 </div>
                 <div class="input-field">
-                     <input type="text" name="password">
+                    <label>Username</label>
+                    <input type="text" name="username" placeholder="Username">
+                </div>
+                <div class="input-field">
                     <label>Password</label>
+                     <input type="password" name="password" placeholder="Password">
                 </div>
             </div>
             <div class="modal-card-foot">
@@ -100,7 +100,8 @@
             $('#add').click(function() {
                 user_validate.resetForm();
                 document.getElementById('user-form').reset();
-
+                var position = $('#emp-name-option');
+                option(url, position);
                 
             })
             $('#edit').click(function() {

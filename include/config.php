@@ -15,12 +15,12 @@
     <link rel="stylesheet" type="text/css" href="static/css/main.css">
 
     <script src="static/js/jquery.min.js"></script>
-    <script src="static/js/function.js"></script>
-    <script src="static/js/action.js"></script>
     <script src="static/js/jquery.localize.min.js"></script>
     <script src="static/js/jquery.validate.min.js"></script>
     <script src="static/js/materialize.min.js"></script>
     <script src="static/js/datedropper.min.js"></script>
+    <script src="static/js/function.js"></script>
+    <script src="static/js/action.js"></script>
     <script src="static/js/app.js"></script>
 
     <?php 

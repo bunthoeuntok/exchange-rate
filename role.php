@@ -33,13 +33,13 @@
             </div>
             <div class="modal-card-body">
                 <input type="hidden" name="id">
-                 <div class="input-field margin-top">
-                    <input name="name" placeholder="Role's name" type="text" class="validate">
+                 <div class="input-field">
                     <label>Role's name</label>
+                    <input name="name" placeholder="Role's name" type="text">
                 </div>
                 <div class="input-field">
-                    <textarea name="description" placeholder="Description"></textarea>
                     <label>Description</label>
+                    <textarea name="description" placeholder="Description"></textarea>
                 </div>
             </div>
             <div class="modal-card-foot">

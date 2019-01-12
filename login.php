@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="static/css/sass/material.css">
+    <link rel="stylesheet" href="static/css/material.css">
     <link rel="stylesheet" href="static/icons/material-icons.css">
     <link rel="stylesheet" href="static/date/datedropper.min.css">
     <link rel="stylesheet" href="static/date/my-style.css">
@@ -86,9 +86,7 @@
             submitHandler: function() {
                 var username = $('#username').val();
                 var password = $('#password').val();
-                login(url, username, password, function() {
-                    
-                })
+                login(url, username, password);
             }
         });
 

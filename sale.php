@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" type="image/x-icon" href="static/images/icons/money-bag.png" />
     <title>Money-Exchange</title>
-    <link rel="stylesheet" href="static/css/sass/material.css">
+
+    <link rel="stylesheet" href="static/css/material.css">
     <link rel="stylesheet" href="static/icons/material-icons.css">
     <link rel="stylesheet" href="static/date/my-style.css">
     <link rel="stylesheet" href="static/css/app.css">
@@ -63,7 +64,7 @@
                      data-target='dropdown1' alt="">
                 <!-- Dropdown Structure -->
                 <ul id='dropdown1' class='dropdown-content'>
-                    <li><a href="#!">one</a></li>
+                    <li><a href="#!"><?php echo $_SESSION['user']->name; ?></a></li>
                     <li><a href="#!">two</a></li>
                     <li class="divider" tabindex="-1"></li>
                     <li><a href="#!">three</a></li>
@@ -94,7 +95,7 @@
                 <div class="container-full" style="padding-top: 12px">
                     <input type="hidden" name="id">
                     <div class="row">
-                        <div class="input-field col s6 margin-top">
+                        <div class="input-field col s6">
                             <select name="gender">
                                 <option value="Male">រៀល</option>
                                 <option value="Female">ដុល្លា</option>
@@ -102,7 +103,7 @@
                             </select>
                             <label>From money</label>
                         </div>
-                        <div class="input-field col s6 margin-top">
+                        <div class="input-field col s6">
                             <select name="gender">
                                 <option value="Male">រៀល</option>
                                 <option value="Female">ដុល្លា</option>
