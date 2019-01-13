@@ -40,7 +40,7 @@
             <label>Enter Password</label>
         </div>
         <div class="login-controller-action">
-            <button type="submit" class="waves-effect waves-green btn teal" id="login"><i class="material-icons left">call_missed_outgoing</i>login</button>
+            <button style="width: 100%" type="submit" class="waves-effect waves-green btn teal" id="login">login</button>
         </div>
     </div>
 </form>

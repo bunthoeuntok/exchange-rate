@@ -31,25 +31,27 @@
                 <p>Modal Header</p>
             </div>
             <div class="modal-card-body">
-                <input type="hidden" name="id">
+                <input type="text" name="id">
                  <div class="row">
-                        <div class="input-field col s6 margin-top">
-                            <input type="text" name="username" placeholder="Username">
-                            <label>From money</label>
-                        </div>
-                        <div class="input-field col s6 margin-top">
-                            <input type="text" name="username" placeholder="Username">
-                            <label>From money</label>
-                        </div>
-                        <div class="input-field col s6 margin-top">
-                            <input type="text" name="username" placeholder="Username">
-                            <label>From money</label>
-                        </div>
-                        <div class="input-field col s6 margin-top">
-                            <input type="text" name="username" placeholder="Username">
-                            <label>From money</label>
-                        </div>
+                    <div class="input-field col s6 margin-top">
+                        <select name="from_cur" id="from_cur"></select>
+                        <!-- <input type="text" name="from_cur" placeholder="From Currency"> -->
+                        <label>From money</label>
                     </div>
+                    <div class="input-field col s6 margin-top">
+                        <select name="to_cur" id="to_cur"></select>
+                        <!-- <input type="text" name="to_cur" placeholder="To Currency"> -->
+                        <label>To money</label>
+                    </div>
+                </div>
+                <div class="input-field margin-top">
+                    <input type="text" name="updated_by" value="<?php echo $_SESSION['user']->id ?>" placeholder="Currency Rate">
+                    <label>Update By</label>
+                </div>
+                <div class="input-field margin-top">
+                    <input type="text" name="rate" placeholder="Currency Rate">
+                    <label>Currency Rate</label>
+                </div>
             </div>
             <div class="modal-card-foot">
                 <button type="button" class="grey lighten-1 waves-effect waves-ligth btn cancel">cancel</button>
@@ -69,8 +71,9 @@
                     this.element(element);  
                 },
                 rules: {
-                    name: {
-                        required: true
+                    rate: {
+                        required: true,
+                        number: true
                     }
                     
                 },
@@ -89,8 +92,14 @@
             $('#add').click(function() {
                 currency_rate_validate.resetForm();
                 document.getElementById('currency-rate-form').reset();
+                var from = $('#from_cur');
+                var to = $('#to_cur');
+                option(url, from, to);
             })
             $('#edit').click(function() {
+                var from = $('#from_cur');
+                var to = $('#to_cur');
+                option(url, from, to);
                 var id = ($('.check-action:checked').val());
                 find_one(url, form, id);
             });
@@ -107,6 +116,12 @@
                         paginate(url, main); 
                     });
                 }
+            })
+
+
+            $('#from_cur').change(function() {
+                $('#to-cur').find('option[value="1"]').hide();
+                $('select').formSelect();
             })
         });
     </script>

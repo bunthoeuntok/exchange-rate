@@ -4,4 +4,5 @@ $(document).ready(function() {
 		paginate('app/controllers/EmployeeController.php', $('#content'), page);
 	})
 
+	
 })

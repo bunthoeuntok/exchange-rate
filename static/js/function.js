@@ -26,7 +26,7 @@ function find_all(url, position) {
 	})
 }
 
-function option(url, position) {
+function option(url, position, position_two = 'none') {
 	var data = {
 		method: 'option'
 	}
@@ -36,7 +36,7 @@ function option(url, position) {
 		data: data,
 		success: function(respone) {
 			var object = JSON.parse(respone);
-			__create_option(object, position);
+			__create_option(object, position, position_two);
 		}	
 	})
 }
@@ -157,7 +157,7 @@ function __map_form(json, form) {
 	$('select').formSelect();
 }
 
-function __create_option(json, position) {
+function __create_option(json, position, position_two) {
 	var options = '';
 	if(json.length <= 0) {
 		options = '<option>No employee to create users</option>';
@@ -167,6 +167,8 @@ function __create_option(json, position) {
 		})
 	}
 	position.html(options);
+	if(position_two != 'none')
+		position_two.html(options)
 	$('select').formSelect();
 }
 
@@ -265,6 +267,9 @@ function formatDate(date) {
 }
 
 function formatDateTime(date) {
+	if(isNaN(date.getDate())) {
+		date = new Date();
+	}
   var dateFormat = formatDate(date);
   var hours = date.getHours();
   var minutes = date.getMinutes();

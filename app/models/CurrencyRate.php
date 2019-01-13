@@ -31,13 +31,18 @@ require_once 'Paginator.php';
 								ON cur_rate.from_cur = cur_one.id
 							INNER JOIN ex_currencies AS cur_two
 								ON cur_rate.to_cur = cur_two.id
+							INNER JOIN ex_users as user
+								ON cur_rate.updated_by = user.id
 							INNER JOIN ex_employees AS emp
-								ON cur_rate.updated_by = emp.id
+								ON user.emp_id = emp.id
 						WHERE cur_one.is_delete = 0 and cur_two.is_delete = 0 LIMIT :limits OFFSET :offsets';
 			$users = new Paginator('ex_currency_rate', true);
 			return $users->pagination($query, $params);
+		}
 
-
+		public static function option() {
+			$query = 'SELECT id, name FROM ex_currencies WHERE is_delete = 0';
+			return parent::findAll($query);
 		}
 
 		public static function find($id = array()) {
@@ -46,7 +51,7 @@ require_once 'Paginator.php';
 		}
 
 		public static function save($params = array()) {
-			$query = 'INSERT INTO ex_currency_rate(name, symbol, country, unit_price) VALUES(:name, :symbol, :country, :unit_price)';
+			$query = 'INSERT INTO ex_currency_rate(from_cur, to_cur, rate, updated_by) VALUES(:from_cur, :to_cur, :rate, :updated_by)';
 			parent::insert($query, $params);
 		}
 
@@ -56,7 +61,7 @@ require_once 'Paginator.php';
 		}
 
 		public static function update($params = array()) {
-			$query = 'UPDATE ex_currency_rate SET name = :name, symbol = :symbol, country = :country, unit_price = :unit_price WHERE id = :id';
+			$query = 'UPDATE ex_currency_rate SET from_cur = :from_cur, to_cur = :to_cur, rate = :rate, updated_by = :updated_by WHERE id = :id';
 			parent::edit($query, $params);
 		}
 
