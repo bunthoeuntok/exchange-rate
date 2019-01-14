@@ -31,23 +31,18 @@
                 <p>Modal Header</p>
             </div>
             <div class="modal-card-body">
-                <input type="text" name="id">
+                <input type="hidden" name="id">
                  <div class="row">
                     <div class="input-field col s6 margin-top">
                         <select name="from_cur" id="from_cur"></select>
-                        <!-- <input type="text" name="from_cur" placeholder="From Currency"> -->
                         <label>From money</label>
                     </div>
                     <div class="input-field col s6 margin-top">
                         <select name="to_cur" id="to_cur"></select>
-                        <!-- <input type="text" name="to_cur" placeholder="To Currency"> -->
                         <label>To money</label>
                     </div>
                 </div>
-                <div class="input-field margin-top">
-                    <input type="text" name="updated_by" value="<?php echo $_SESSION['user']->id ?>" placeholder="Currency Rate">
-                    <label>Update By</label>
-                </div>
+                    <input type="hidden" name="updated_by" value="<?php echo $_SESSION['user']->id ?>">
                 <div class="input-field margin-top">
                     <input type="text" name="rate" placeholder="Currency Rate">
                     <label>Currency Rate</label>
@@ -120,8 +115,14 @@
 
 
             $('#from_cur').change(function() {
-                $('#to-cur').find('option[value="1"]').hide();
+                var value = $(this).val();
+                $('#to_cur').find('option[value="1"]').css('display', 'none');
                 $('select').formSelect();
+            });
+
+            $('body').on('click', '.toolbar-footer li a', function() {
+                var page = $(this).attr('data-page');
+                paginate(url, main, page);
             })
         });
     </script>

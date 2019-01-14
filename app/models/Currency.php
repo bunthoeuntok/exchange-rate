@@ -11,10 +11,15 @@ require_once 'Paginator.php';
 
 		public static function paginate($params = array()) {
 			$query = 'SELECT id, name, symbol, country, unit_price FROM ex_currencies  WHERE is_delete = 0 LIMIT :limits OFFSET :offsets';
-			$users = new Paginator('ex_currencies');
-			return $users->pagination($query, $params);
+			$currency = new Paginator('ex_currencies');
+			return $currency->pagination($query, $params);
 
 
+		}
+
+		public static function option() {
+			$query = 'SELECT id, name FROM ex_currencies WHERE is_delete = 0';
+			return parent::findAll($query);
 		}
 
 		public static function find($id = array()) {

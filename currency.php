@@ -113,6 +113,11 @@
                     paginate(url, main);
                 });
             }
+        });
+
+        $('body').on('click', '.toolbar-footer li a', function() {
+            var page = $(this).attr('data-page');
+            paginate(url, $('#content'), page);
         })
     });
 </script>

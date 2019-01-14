@@ -53,7 +53,6 @@
 								'prep' => $this->prep);
 
 			return array('data' => $data, 'meta' => $pagin_info);
-
 		}
 	}
 

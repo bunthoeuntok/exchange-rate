@@ -249,6 +249,9 @@ function __create_pagination(pagin) {
  //    </section>
 }
 
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 function formatDate(date) {
   var monthNames = [
@@ -340,7 +343,10 @@ function __create_table(records, position) {
     			td.append(formatDateTime(new Date(records[row][key])));
     		} else if(key == 'no') {
     			td.append(`<span style="padding-left: 20px">${no++}</span>`)
-    		} else {
+    		}else if(key == 'amount'){
+    			td.append(numberWithCommas(records[row][key]));
+    		}
+    		 else {
     			td.append(records[row][key]);
     		}
  

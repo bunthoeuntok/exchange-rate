@@ -33,23 +33,25 @@
             <div class="modal-card-body">
                 <input type="hidden" name="id">
                  <div class="row">
-                        <div class="input-field col s6 margin-top">
-                            <input type="text" name="username" placeholder="Username">
-                            <label>From money</label>
-                        </div>
-                        <div class="input-field col s6 margin-top">
-                            <input type="text" name="username" placeholder="Username">
-                            <label>From money</label>
-                        </div>
-                        <div class="input-field col s6 margin-top">
-                            <input type="text" name="username" placeholder="Username">
-                            <label>From money</label>
-                        </div>
-                        <div class="input-field col s6 margin-top">
-                            <input type="text" name="username" placeholder="Username">
-                            <label>From money</label>
-                        </div>
+                    <div class="input-field col s6 margin-top">
+                        <select name="sender" disabled="true">
+                            <option value="<?php echo $_SESSION['user']->id ?>"><?php echo $_SESSION['user']->name; ?></option>
+                        </select>
+                        <label>Sender</label>
                     </div>
+                    <div class="input-field col s6 margin-top">
+                        <select name="receiver" id="receiver"></select>
+                        <label>To Sender</label>
+                    </div>
+                </div>
+                <div class="input-field margin-top">
+                    <select name="cur_id" id="cur_id"></select>
+                    <label>Currency Type</label>
+                </div>
+                <div class="input-field margin-top">
+                    <input type="text" name="amount" placeholder="Amount">
+                    <label>Amount</label>
+                </div>
             </div>
             <div class="modal-card-foot">
                 <button type="button" class="grey lighten-1 waves-effect waves-ligth btn cancel">cancel</button>
@@ -62,13 +64,13 @@
             var main = $('#content');
             var form = $('#transfer-form');
             var url = 'app/controllers/TransferController.php';
-
+            
             var transfer_validate = form.validate({
                 onfocusout: function(element) {
                     this.element(element);  
                 },
                 rules: {
-                    name: {
+                    amount: {
                         required: true
                     }
                     
@@ -88,6 +90,11 @@
             $('#add').click(function() {
                 transfer_validate.resetForm();
                 document.getElementById('transfer-form').reset();
+
+                var receiver = $('#receiver');
+                var cur_id = $('#cur_id');
+                option(url, receiver);
+                option('app/controllers/CurrencyController.php', cur_id);
             })
             $('#edit').click(function() {
                 var id = ($('.check-action:checked').val());
@@ -106,6 +113,11 @@
                         paginate(url, main); 
                     });
                 }
+            });
+
+            $('body').on('click', '.toolbar-footer li a', function() {
+                var page = $(this).attr('data-page');
+                paginate(url, main, page);
             })
         });
     </script>

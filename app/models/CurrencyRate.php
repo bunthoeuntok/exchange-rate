@@ -35,9 +35,9 @@ require_once 'Paginator.php';
 								ON cur_rate.updated_by = user.id
 							INNER JOIN ex_employees AS emp
 								ON user.emp_id = emp.id
-						WHERE cur_one.is_delete = 0 and cur_two.is_delete = 0 LIMIT :limits OFFSET :offsets';
-			$users = new Paginator('ex_currency_rate', true);
-			return $users->pagination($query, $params);
+						WHERE cur_one.is_delete = 0 and cur_two.is_delete = 0 AND cur_rate.is_delete = 0 LIMIT :limits OFFSET :offsets';
+			$rate = new Paginator('ex_currency_rate', true);
+			return $rate->pagination($query, $params);
 		}
 
 		public static function option() {
