@@ -185,3 +185,6 @@ main{
     right: 0;
     top: 0;
 }
+.none{
+    display: none !important;
+}
