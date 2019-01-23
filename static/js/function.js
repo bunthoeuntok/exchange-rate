@@ -21,10 +21,12 @@ function find_all(url, position) {
 		type: 'post',
 		data: data,
 		success: function(respone) {
-			var object = JSON.parse(respone);
+			object = JSON.parse(respone);
 			__create_table(object, position);
-		}	
-	})
+			return object;
+		}
+
+	});	
 }
 
 function option(url, position, position_two = 'none') {

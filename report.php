@@ -84,34 +84,9 @@
         var url = 'app/controllers/ReportController.php';
         var form = $('#search');
 
-        find_all(url, main);
+        var test = find_all(url, main);
+        console.log(test)
 
-        var user_validate = form.validate({
-            onfocusout: function(element) {
-                this.element(element);  
-            },
-            rules: {
-                user_id: {
-                    required: true
-                },
-                start_date: {
-                    required: true
-                }, 
-                end_date: {
-                    required: true
-                }, 
-                
-            },
-            // Submit form if validate successful 
-                // Insert if no id feild
-                // Update if it has id feild
-            submitHandler: function() {
-                // form_submit(form, function() {
-                    // paginate(url, main);
-                    alert(2)
-                // });
-            }
-        });
     });
 
 

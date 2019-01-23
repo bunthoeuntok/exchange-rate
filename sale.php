@@ -63,12 +63,9 @@
                 <img src="https://i0.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1" class="dropdown-trigger btn-floating z-depth-0"
                      data-target='dropdown1' alt="">
                 <!-- Dropdown Structure -->
-                <ul id='dropdown1' class='dropdown-content'>
+                <ul id='dropdown1' class='dropdown-content' style="width: 300px !important">
                     <li><a href="#!"><?php echo $_SESSION['user']->name; ?></a></li>
-                    <li><a href="#!">two</a></li>
-                    <li class="divider" tabindex="-1"></li>
-                    <li><a href="#!">three</a></li>
-                    <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+                    <li><a href="#!"><i class="material-icons">update</i>Close Invoice</a></li>
                     <li><a href="login.php"><i class="material-icons">exit_to_app</i>Sign out</a></li>
                 </ul>
             </li>
@@ -88,47 +85,53 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Saler</th>
+                            <th style="padding-left: 20px">Saler: <?php echo $_SESSION['user']->name; ?></th>
+                            <th></th>
                         </tr>
                     </thead>
                 </table>
-                <div class="container-full" style="padding-top: 12px">
-                    <input type="hidden" name="id">
-                    <div class="row">
-                        <div class="input-field col s6">
+                <div class="container-full" style="padding-top: 30px">
+                    <form method="post">
+                        <div class="input-field">
                             <select name="gender">
                                 <option value="Male">រៀល</option>
                                 <option value="Female">ដុល្លា</option>
                                 <option value="Female">បាត</option>
                             </select>
-                            <label>From money</label>
+                            <label>Please choose currency's rate</label>
                         </div>
-                        <div class="input-field col s6">
-                            <select name="gender">
-                                <option value="Male">រៀល</option>
-                                <option value="Female">ដុល្លា</option>
-                                <option value="Female">បាត</option>
-                            </select>
-                            <label>To money</label>
+                        <div class="row">
+                            <div class="input-field col m6">
+                                <input name="name" placeholder="Epmloyee's name" type="text">
+                                <label>Total Amount</label>
+                            </div>
+                            <div class="input-field col m6">
+                                <input name="name" placeholder="Epmloyee's name" type="text">
+                                <label>Exchange Amount</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="input-field">
-                        <input name="name" placeholder="Epmloyee's name" type="text">
-                        <label>Employee's name</label>
-                    </div>
-                    <div class="input-field">
-                        <input name="name" placeholder="Epmloyee's name" type="text">
-                        <label>Employee's name</label>
-                    </div>
-                    <div class="input-field">
-                        <input name="name" placeholder="Epmloyee's name" type="text">
-                        <label>Employee's name</label>
-                    </div>
-                    <div class="modal-card-foot">
-                        <button type="button" class="grey lighten-1 waves-effect waves-ligth btn cancel">cancel</button>
-                        <button type="submit" class="waves-effect waves-ligth btn">save</button>
-                    </div>
+                        <div class="input-field">
+                            <p style="margin-bottom: -5px">Exchange Amount <span style="float: right; color: #2C6197; text-decoration: underline;">00/000</span></p>
+                            <p>Exchange Amount <span style="float: right; color: #2C6197; text-decoration: underline;">00/000</span></p>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col m6">
+                                <button style="width: 100%" type="submit" class="waves-effect waves-green btn teal" id="login">login</button>
+                            </div>
+                            <div class="input-field col m6">
+                                <button style="width: 100%" type="submit" class="waves-effect waves-green btn teal" id="login">login</button>
+                            </div>
+                        </div> 
+                    </form>
                 </div>
+                <hr>
+
+                <!-- <div class="container-full" style="display: flex; align-items: flex-end; su">
+                    <div class="input-field">
+                        <p style="margin-bottom: -5px">Exchange Amount <span style="float: right; color: #2C6197; text-decoration: underline;">00/000</span></p>
+                        <p>Exchange Amount <span style="float: right; color: #2C6197; text-decoration: underline;">00/000</span></p>
+                    </div>
+                </div> -->
 
             </div>
         </div>
@@ -138,7 +141,7 @@
     $(document).ready(function() {
         var main = $('#content');
         var form = $('#transfer-form');
-        var url = 'app/controllers/UserController.php';
+        var url = 'app/controllers/SaleController.php';
 
         var transfer_validate = form.validate({
             onfocusout: function(element) {
@@ -160,7 +163,7 @@
             }
         });
 
-        paginate(url, main);
+        find_all(url, main);
 
         $('#add').click(function() {
             transfer_validate.resetForm();

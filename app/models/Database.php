@@ -17,10 +17,10 @@
 			
 		}
 
-		protected static function findAll($query) {
+		protected static function findAll($query, $params = array()) {
 		
 				$statement = self::connect()->prepare($query);
-				$statement->execute();
+				$statement->execute($params);
 				$data = $statement->fetchAll();
 
 				return $data;
