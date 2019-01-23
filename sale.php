@@ -65,10 +65,6 @@
                 <!-- Dropdown Structure -->
                 <ul id='dropdown1' class='dropdown-content'>
                     <li><a href="#!"><?php echo $_SESSION['user']->name; ?></a></li>
-                    <li><a href="#!">two</a></li>
-                    <li class="divider" tabindex="-1"></li>
-                    <li><a href="#!">three</a></li>
-                    <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
                     <li><a href="login.php"><i class="material-icons">exit_to_app</i>Sign out</a></li>
                 </ul>
             </li>
