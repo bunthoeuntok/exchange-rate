@@ -21,7 +21,8 @@ function find_all(url, position) {
 		type: 'post',
 		data: data,
 		success: function(respone) {
-			__create_table(respone, position);
+			var object = JSON.parse(respone);
+			__create_table(object, position);
 		}	
 	})
 }

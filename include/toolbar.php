@@ -15,27 +15,32 @@
                class="validate-small no-margin" name="search" placeholder="Search...">
     </div>
     <div class="none">
-        <div class="boxs-report">
-            <div class="box-report">
-                <select name="name">
-                    <option value="Male">All</option>
-                    <option value="Male">Tok Bunthoeun</option>
-                    <option value="Female">Roeun Chamnab</option>
-                </select>
-            </div>
-            <div class="box-report">
-                <input name="start_date" placeholder="Start Date" class="date" type="text" data-format="Y-m-d"
-                       data-large-default="true" data-theme="my-style" data-large-mode="true"
-                       data-translate-mode="true"/>
+        <form method="post" action="app/controllers/ReportController.php" id="search">
+            <div class="boxs-report">
+                <div class="box-report">
+                    <select name="user_id" id="user_id">
+                        <option value="Male">All</option>
+                        <option value="Male">Tok Bunthoeun</option>
+                        <option value="Female">Roeun Chamnab</option>
+                    </select>
+                </div>
+                <div class="box-report">
+                    <input name="start_date" placeholder="Start Date" class="date" type="text" data-format="Y-m-d"
+                           data-large-default="true" data-theme="my-style" data-large-mode="true"
+                           data-translate-mode="true"/>
+
+                </div>
+                <div class="box-report">
+                    <input name="end_date" placeholder="End Date" class="date" type="text" data-format="Y-m-d"
+                           data-large-default="true" data-theme="my-style" data-large-mode="true"
+                           data-translate-mode="true"/>
+                </div>
+                <div class="box-report">
+                    <input type="submit" class="btn btn-small waves-effect waves-ligth" value="Search">
+                </div>
 
             </div>
-            <div class="box-report">
-                <input name="end_date" placeholder="End Date" class="date" type="text" data-format="Y-m-d"
-                       data-large-default="true" data-theme="my-style" data-large-mode="true"
-                       data-translate-mode="true"/>
-            </div>
-
-        </div>
+        </form>
     </div>
 </div>
 <div class="modal modal-small alert">
