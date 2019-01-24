@@ -36,7 +36,7 @@
                            data-translate-mode="true"/>
                 </div>
                 <div class="box-report">
-                    <input type="submit" class="btn btn-small waves-effect waves-ligth" value="Search">
+                    <button type="submit" class="btn btn-small waves-effect waves-ligth">Search</button>
                 </div>
 
             </div>

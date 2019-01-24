@@ -80,59 +80,62 @@
                 <div id="content"></div>
             </div>
             <div class="col s12 l4 pa-0"
-            style="border-left: 1px solid #e0e0e0;height: calc(100vh - 56px); overflow-y:auto;"
+            style="border-left: 1px solid #e0e0e0;height: calc(100vh - 56px); overflow-y:auto; flex-direction:column; display:flex;"
             >
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="padding-left: 20px">Saler: <?php echo $_SESSION['user']->name; ?></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                </table>
-                <div class="container-full" style="padding-top: 30px">
-                    <form method="post">
-                        <div class="input-field">
-                            <select name="gender">
-                                <option value="Male">រៀល</option>
-                                <option value="Female">ដុល្លា</option>
-                                <option value="Female">បាត</option>
-                            </select>
-                            <label>Please choose currency's rate</label>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col m6">
-                                <input name="name" placeholder="Epmloyee's name" type="text">
-                                <label>Total Amount</label>
+                <div class="" style="flex: 1; width: 100%; border: 1px solid grey">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="padding-left: 20px">Saler: <?php echo $_SESSION['user']->name; ?></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                    </table>
+
+                    <div class="container-full" style="padding-top: 30px; ">
+                        <form method="post">
+                            <div class="input-field">
+                                <select name="gender">
+                                    <option value="Male">រៀល</option>
+                                    <option value="Female">ដុល្លា</option>
+                                    <option value="Female">បាត</option>
+                                </select>
+                                <label>Please choose currency's rate</label>
                             </div>
-                            <div class="input-field col m6">
-                                <input name="name" placeholder="Epmloyee's name" type="text">
-                                <label>Exchange Amount</label>
+                            <div class="row">
+                                <div class="input-field col m6">
+                                    <input name="name" placeholder="Epmloyee's name" type="text">
+                                    <label>Total Amount</label>
+                                </div>
+                                <div class="input-field col m6">
+                                    <input name="name" placeholder="Epmloyee's name" type="text">
+                                    <label>Exchange Amount</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="input-field">
-                            <p style="margin-bottom: -5px">Exchange Amount <span style="float: right; color: #2C6197; text-decoration: underline;">00/000</span></p>
-                            <p>Exchange Amount <span style="float: right; color: #2C6197; text-decoration: underline;">00/000</span></p>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col m6">
-                                <button style="width: 100%" type="submit" class="waves-effect waves-green btn teal" id="login">login</button>
+                            <div class="input-field">
+                                <p style="margin-bottom: -5px">Exchange Amount <span style="float: right; color: #2C6197; text-decoration: underline;">00/000</span></p>
+                                <p>Exchange Amount <span style="float: right; color: #2C6197; text-decoration: underline;">00/000</span></p>
                             </div>
-                            <div class="input-field col m6">
-                                <button style="width: 100%" type="submit" class="waves-effect waves-green btn teal" id="login">login</button>
-                            </div>
-                        </div> 
-                    </form>
+                            <div class="row">
+                                <div class="input-field col m6">
+                                    <button style="width: 100%" type="submit" class="waves-effect waves-green btn teal" id="login">login</button>
+                                </div>
+                                <div class="input-field col m6">
+                                    <button style="width: 100%" type="submit" class="waves-effect waves-green btn teal" id="login">login</button>
+                                </div>
+                            </div> 
+                        </form>
+                    </div>
                 </div>
+
                 <hr>
 
-                <!-- <div class="container-full" style="display: flex; align-items: flex-end; su">
+                <div class="container-full" style="">
                     <div class="input-field">
                         <p style="margin-bottom: -5px">Exchange Amount <span style="float: right; color: #2C6197; text-decoration: underline;">00/000</span></p>
                         <p>Exchange Amount <span style="float: right; color: #2C6197; text-decoration: underline;">00/000</span></p>
                     </div>
-                </div> -->
-
+                </div>
             </div>
         </div>
     </div>

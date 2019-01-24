@@ -32,7 +32,7 @@ $result = mysqli_query($conn, $query);
                     <div class="card-content">
                         <p>Employee</p>
                         <div class="">
-                          
+                          <b>12</b>
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,9 @@ $result = mysqli_query($conn, $query);
                 <div class="card">
                     <div class="card-content">
                         <p>Users</p>
-                        <div class=""></div>
+                        <div class="">
+                            <b>2</b>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -49,6 +51,9 @@ $result = mysqli_query($conn, $query);
                 <div class="card">
                     <div class="card-content">
                         <p>Total Transition</p>
+                        <div class="">
+                            <b>20</b>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -56,7 +61,9 @@ $result = mysqli_query($conn, $query);
                 <div class="card">
                     <div class="card-content">
                         <p>Transfer Money Today</p>
-                        <div class=""></div>
+                        <div class="">
+                            <b>$150.00</b>
+                        </div>
                     </div>
                 </div>
             </div>
