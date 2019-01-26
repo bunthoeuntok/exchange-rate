@@ -30,7 +30,7 @@ $result = mysqli_query($conn, $query);
             <div class="col s12 m6 xl3">
                 <div class="card">
                     <div class="card-content">
-                        <p>Employee</p>
+                        <p style="display: flex; align-items: center; margin-bottom: 16px"><i class="material-icons">people_outline</i><span style="padding-left: 16px;">Employee</span></p>
                         <div class="">
                           <b>12</b>
                         </div>
@@ -40,9 +40,9 @@ $result = mysqli_query($conn, $query);
             <div class="col s12 m6 xl3">
                 <div class="card">
                     <div class="card-content">
-                        <p>Users</p>
+                        <p style="display: flex; align-items: center; margin-bottom: 16px"><i class="material-icons">person</i><span style="padding-left: 16px;">Users</span></p>
                         <div class="">
-                            <b>2</b>
+                          <b>2</b>
                         </div>
                     </div>
                 </div>
@@ -50,9 +50,9 @@ $result = mysqli_query($conn, $query);
             <div class="col s12 m6 xl3">
                 <div class="card">
                     <div class="card-content">
-                        <p>Total Transition</p>
+                        <p style="display: flex; align-items: center; margin-bottom: 16px"><i class="material-icons">transform</i><span style="padding-left: 16px;">Total Transition</span></p>
                         <div class="">
-                            <b>20</b>
+                          <b>2</b>
                         </div>
                     </div>
                 </div>
@@ -60,9 +60,9 @@ $result = mysqli_query($conn, $query);
             <div class="col s12 m6 xl3">
                 <div class="card">
                     <div class="card-content">
-                        <p>Transfer Money Today</p>
+                        <p style="display: flex; align-items: center; margin-bottom: 16px"><i class="material-icons">transform</i><span style="padding-left: 16px;">Transfer Money Today</span></p>
                         <div class="">
-                            <b>$150.00</b>
+                          <b>2</b>
                         </div>
                     </div>
                 </div>

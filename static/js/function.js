@@ -12,6 +12,35 @@
 // 	})
 // }
 
+function rate_option(url, position) {
+	var data = {
+		method: 'rate'
+	}
+	$.ajax({
+		url: url,
+		type: 'post',
+		data: data,
+		success: function(respone) {
+			var object = JSON.parse(respone);
+			__create_rate_option(object, position);
+		}	
+	})
+}
+
+function __create_rate_option(json, position) {
+	
+	var options = '<option>Please select rate</option>'
+	if(json.length <= 0) {
+		options = '<option>No currency available</option>';
+	} else {
+		json.forEach(function(item) {
+			options += `<option value="${item.from_cur} ${item.to_cur} ${item.rate}">${item.symbol_one} -> ${item.symbol_two} (${item.rate})</option>`;
+		})
+	}
+	position.html(options);
+	$('select').formSelect();
+}
+
 function find_all(url, position) {
 	var data = {
 		'method': 'all'
@@ -88,7 +117,6 @@ function action(form, type, callback) {
 	form.find('[name]').each(function() {
 		data[$(this).attr('name')] = $(this).val();
 	});
-
 	$.when($.ajax({
 		url: url,
 		type: 'post',
@@ -96,6 +124,7 @@ function action(form, type, callback) {
 
 		success: function(respone) {
 			closefunction()
+			console.log(respone)
 		}
 	})).done(function() {
 		callback();

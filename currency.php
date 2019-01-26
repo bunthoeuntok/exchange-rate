@@ -102,17 +102,30 @@
         });
 
         $('#delete').click(function () {
-            var ids = $('body').find('.check-action:checked').map(function () {
+            // var ids = $('body').find('.check-action:checked').map(function () {
+            //     return $(this).val();
+            // }).get().join(' ');
+
+            // var result = confirm('Want to delete?');
+
+            // if (result) {
+            //     deletes(url, ids, function () {
+            //         paginate(url, main);
+            //     });
+            // }
+
+            var ids = $('body').find('.check-action:checked').map(function() {
                 return $(this).val();
             }).get().join(' ');
 
-            var result = confirm('Want to delete?');
-
-            if (result) {
-                deletes(url, ids, function () {
-                    paginate(url, main);
+            showalert()
+            
+            $('body').on('click', '.delete', function(){
+                deletes(url, ids, function() {
+                    paginate(url, main); 
                 });
-            }
+                closealert()
+            })
         });
 
         $('body').on('click', '.toolbar-footer li a', function() {

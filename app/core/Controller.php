@@ -19,8 +19,10 @@
 			// Insert data to database
 			else if($method == 'post') {
 				unset($data['id']);
-
-				$model->save($data);
+				if(isset($data['']))
+					unset($data['']);
+			
+				return $model->save($data);
 
 			}
 
@@ -43,6 +45,10 @@
 
 			else if($method == 'option') {
 				return $model->option();
+			}
+
+			else if($method == 'rate') {
+				return $model->rate();
 			}
 			
 		}

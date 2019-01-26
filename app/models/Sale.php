@@ -15,6 +15,21 @@ require_once 'Paginator.php';
 				// return date('Y-m-d');
 		}
 
+		public static function rate() {
+			$query = 'SELECT rate.from_cur, cur_one.symbol as symbol_one, rate.to_cur, cur_two.symbol as symbol_two, rate.rate FROM ex_currency_rate as rate 
+					INNER JOIN ex_currencies as cur_one
+					ON rate.from_cur = cur_one.id
+					INNER JOIN ex_currencies as cur_two
+					ON rate.to_cur = cur_two.id WHERE rate.is_delete = 0 and cur_one.is_delete = 0 and cur_two.is_delete = 0';
+				return parent::findAll($query);
+		}
+
+		public static function save($params = array()) {
+			$query = 'INSERT INTO ex_exchange(user_id, from_cur, from_amount, to_cur, to_amount, ex_rate) VALUES(:user_id, :from_cur, :from_amount, :to_cur, :to_amount, :ex_rate)';
+			parent::insert($query, $params);
+			return $params;
+		}
+
 		
 
 	}

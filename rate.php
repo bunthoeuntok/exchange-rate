@@ -44,7 +44,7 @@
                 </div>
                     <input type="hidden" name="updated_by" value="<?php echo $_SESSION['user']->id ?>">
                 <div class="input-field margin-top">
-                    <input type="text" name="rate" placeholder="Currency Rate">
+                    <input type="text" name="ex_rate" placeholder="Currency Rate">
                     <label>Currency Rate</label>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                     this.element(element);  
                 },
                 rules: {
-                    rate: {
+                    ex_rate: {
                         required: true,
                         number: true
                     }
@@ -100,17 +100,29 @@
             });
 
             $('#delete').click(function() {
+                // var ids = $('body').find('.check-action:checked').map(function() {
+                //     return $(this).val();
+                // }).get().join(' ');
+
+                // var result = confirm('Want to delete?');
+
+                // if(result) {
+                //     deletes(url, ids, function() {
+                //         paginate(url, main); 
+                //     });
+                // }
                 var ids = $('body').find('.check-action:checked').map(function() {
                     return $(this).val();
                 }).get().join(' ');
 
-                var result = confirm('Want to delete?');
-
-                if(result) {
+                showalert()
+                
+                $('body').on('click', '.delete', function(){
                     deletes(url, ids, function() {
                         paginate(url, main); 
                     });
-                }
+                    closealert()
+                })
             })
 
 

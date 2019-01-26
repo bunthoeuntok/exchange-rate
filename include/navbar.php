@@ -21,6 +21,8 @@
                          data-target='dropdown1' alt="">
                     <!-- Dropdown Structure -->
                     <ul id='dropdown1' class='dropdown-content' style="padding: 16px 0;">
+
+                        <li><a><i class="material-icons">person</i><?php echo $_SESSION['user']->name; ?></a></li>
                         <li><a href="sale.php"><i class="material-icons">laptop</i>Exchange Money</a></li>
                         <li><a href="login.php"><i class="material-icons">exit_to_app</i>Sign out</a></li>
                     </ul>

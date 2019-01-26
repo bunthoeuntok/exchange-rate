@@ -14,7 +14,7 @@
         <input style="color: #666; font-weight: 400; background: #fff; height: 40px" id="search" type="text"
                class="validate-small no-margin" name="search" placeholder="Search...">
     </div>
-    <div class="none">
+    <!-- <div class="none">
         <form method="post" action="app/controllers/ReportController.php" id="search">
             <div class="boxs-report">
                 <div class="box-report">
@@ -41,20 +41,21 @@
 
             </div>
         </form>
-    </div>
+    </div> -->
 </div>
 <div class="modal modal-small alert">
     <div class="modal-card">
-        <div class="modal-card-head red">
-            hi
+        <div class="modal-card-body" style="">
+            <div class="" style="width: 100%;display: flex;justify-content: center;">
+                <img src="static/images/icons/exclamation.png" alt="">
+            </div>
+            <p>
+                Are you sure that you want to permanently delete the selected item
+            </p>
         </div>
-        <div class="modal-card-body">
-            <p>Want to delete?</p>
-            <p>Want to delete?</p>
-        </div>
-        <div class="modal-card-foot">
+        <div class="modal-card-foot" style="display: flex; justify-content: center; padding: 24px; padding-bottom: 30px;">
             <button class="btn-small grey closealert">cancel</button>
-            <button class="btn-small delete">delete</button>
+            <button class="btn-small delete red">yes delete it</button>
         </div>
     </div>
 </div>

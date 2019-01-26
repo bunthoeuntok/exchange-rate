@@ -64,7 +64,7 @@
                      data-target='dropdown1' alt="">
                 <!-- Dropdown Structure -->
                 <ul id='dropdown1' class='dropdown-content' style="width: 300px !important">
-                    <li><a href="#!"><?php echo $_SESSION['user']->name; ?></a></li>
+                    <li><a href="#!"><i class="material-icons">person</i><?php echo $_SESSION['user']->name; ?></a></li>
                     <li><a href="#!"><i class="material-icons">update</i>Close Invoice</a></li>
                     <li><a href="login.php"><i class="material-icons">exit_to_app</i>Sign out</a></li>
                 </ul>
@@ -82,7 +82,7 @@
             <div class="col s12 l4 pa-0"
             style="border-left: 1px solid #e0e0e0;height: calc(100vh - 56px); overflow-y:auto; flex-direction:column; display:flex;"
             >
-                <div class="" style="flex: 1; width: 100%; border: 1px solid grey">
+                <div class="" style="flex: 1; width: 100%;">
                     <table>
                         <thead>
                             <tr>
@@ -93,47 +93,50 @@
                     </table>
 
                     <div class="container-full" style="padding-top: 30px; ">
-                        <form method="post">
+                        <form method="post" id="sale-form" action="app/controllers/SaleController.php">
+                            <input type="hidden" name="id">
                             <div class="input-field">
-                                <select name="gender">
-                                    <option value="Male">រៀល</option>
-                                    <option value="Female">ដុល្លា</option>
-                                    <option value="Female">បាត</option>
+                                <select id="rate_location">
+                                    <!-- <option value="Male">ដុល្លា -> រៀល (4075)</option> -->
                                 </select>
                                 <label>Please choose currency's rate</label>
                             </div>
                             <div class="row">
                                 <div class="input-field col m6">
-                                    <input name="name" placeholder="Epmloyee's name" type="text">
+                                    <input placeholder="Total Amount" type="text" id="total_amount">
                                     <label>Total Amount</label>
                                 </div>
                                 <div class="input-field col m6">
-                                    <input name="name" placeholder="Epmloyee's name" type="text">
+                                    <input name="from_amount" placeholder="Exchange Amount" type="text" id="exchange_amount">
                                     <label>Exchange Amount</label>
                                 </div>
                             </div>
+                            <input type="hidden" name="user_id" value="<?php echo $_SESSION['user']->id ?>">
+                            <input type="hidden" name="from_cur" id="from_cur">
+                            <input type="hidden" name="to_cur" id="to_cur">
+                            <input type="hidden" name="ex_rate" id="rate">
+                            <input type="hidden" name="to_amount" id="to_amount">
                             <div class="input-field">
-                                <p style="margin-bottom: -5px">Exchange Amount <span style="float: right; color: #2C6197; text-decoration: underline;">00/000</span></p>
-                                <p>Exchange Amount <span style="float: right; color: #2C6197; text-decoration: underline;">00/000</span></p>
+                                <p style="margin-bottom: -5px">Exchanged Amount <span style="float: right; color: #2C6197; text-decoration: underline;" id="exchanged">00.00</span></p>
+                                <p>Remaining Amount <span style="float: right; color: #2C6197; text-decoration: underline;" id="remaining">00.00</span></p>
                             </div>
                             <div class="row">
                                 <div class="input-field col m6">
-                                    <button style="width: 100%" type="submit" class="waves-effect waves-green btn teal" id="login">login</button>
+                                    <button style="width: 100%" id="clear" type="button" class="waves-effect waves-green btn teal" id="login">clear</button>
                                 </div>
                                 <div class="input-field col m6">
-                                    <button style="width: 100%" type="submit" class="waves-effect waves-green btn teal" id="login">login</button>
-                                </div>
-                            </div> 
+                                    <button style="width: 100%" type="submit" class="waves-effect waves-green btn teal" id="login">OK</button>
+                                </div> 
+                                
+                            </div>                          
                         </form>
                     </div>
                 </div>
 
-                <hr>
-
                 <div class="container-full" style="">
                     <div class="input-field">
-                        <p style="margin-bottom: -5px">Exchange Amount <span style="float: right; color: #2C6197; text-decoration: underline;">00/000</span></p>
-                        <p>Exchange Amount <span style="float: right; color: #2C6197; text-decoration: underline;">00/000</span></p>
+                        <p style="margin-bottom: -5px">Dollar <span style="float: right; color: #2C6197; text-decoration: underline;">00.00</span></p>
+                        <p>Reil <span style="float: right; color: #2C6197; text-decoration: underline;">00.00</span></p>
                     </div>
                 </div>
             </div>
@@ -143,15 +146,16 @@
 <script type="text/javascript">
     $(document).ready(function() {
         var main = $('#content');
-        var form = $('#transfer-form');
+        var form = $('#sale-form');
         var url = 'app/controllers/SaleController.php';
+        var rate_location = $('#rate_location');
 
         var transfer_validate = form.validate({
             onfocusout: function(element) {
                 this.element(element);
             },
             rules: {
-                name: {
+                from_amount: {
                     required: true
                 }
 
@@ -161,34 +165,46 @@
             // Update if it has id feild
             submitHandler: function() {
                 form_submit(form, function() {
-                    paginate(url, main);
+                    find_all(url, main);
+                    
                 });
             }
         });
 
+        $('#clear').click(function() {
+            $('#sale-form input').val('');
+            $('#exchanged').html('00.00')
+            $('#remaining').html('00.00')
+        })
+
         find_all(url, main);
+        rate_option(url, rate_location);
+        rate_location.change(function() {
+            var info = $(this).val().split(' ');
+            $('#from_cur').val(info[0]);
+            $('#to_cur').val(info[1]);
+            $('#rate').val(info[2])
+        })
+        $('#total_amount').blur(function() {
+            $('#exchange_amount').val($(this).val())
+        })
+
+        $('#exchange_amount').blur(function() {
+            var info = $(this).val().split(' ');
+            var test = $(this).val() * $('#rate').val();
+            var remain = $(this).val() * $('#rate').val() % 1;
+            var test2 = $('#total_amount').val() - $('#exchange_amount').val();
+            var test3 = test2 + remain * 4075;
+            $('#exchanged').html(Math.floor(test))
+            $('#remaining').html(Math.floor(test3 - test3 % 100))
+            $('#to_amount').val(Math.floor(test))
+            // alert($('#rate').val())
+        })
+
 
         $('#add').click(function() {
             transfer_validate.resetForm();
             document.getElementById('transfer-form').reset();
-        })
-        $('#edit').click(function() {
-            var id = ($('.check-action:checked').val());
-            find_one(url, form, id);
-        });
-
-        $('#delete').click(function() {
-            var ids = $('body').find('.check-action:checked').map(function() {
-                return $(this).val();
-            }).get().join(' ');
-
-            var result = confirm('Want to delete?');
-
-            if(result) {
-                deletes(url, ids, function() {
-                    paginate(url, main);
-                });
-            }
         })
     });
 </script>
